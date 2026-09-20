@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://trakyamezarliktemizleme.site/sitemap.xml
