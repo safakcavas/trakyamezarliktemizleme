@@ -33,7 +33,7 @@ const availableServices: ServiceOption[] = [
 ];
 
 export default function QuoteCalculator() {
-  const [selectedProvince, setSelectedProvince] = useState<"Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul">("Tekirdağ");
+  const [selectedProvince, setSelectedProvince] = useState<"Tekirdağ" | "Kırklareli" | "Edirne">("Tekirdağ");
   const [selectedDistrict, setSelectedDistrict] = useState<string>("Süleymanpaşa (Tekirdağ Merkez)");
   const [village, setVillage] = useState("");
   const [selectedServices, setSelectedServices] = useState<string[]>([
@@ -50,16 +50,12 @@ export default function QuoteCalculator() {
     (d) => d.province === selectedProvince
   );
 
-  const handleProvinceChange = (province: "Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul") => {
+  const handleProvinceChange = (province: "Tekirdağ" | "Kırklareli" | "Edirne") => {
     setSelectedProvince(province);
     if (province === "Tekirdağ") {
       setSelectedDistrict("Süleymanpaşa (Tekirdağ Merkez)");
     } else if (province === "Kırklareli") {
       setSelectedDistrict("Kırklareli Merkez");
-    } else if (province === "Çanakkale") {
-      setSelectedDistrict("Gelibolu");
-    } else if (province === "İstanbul") {
-      setSelectedDistrict("Silivri");
     } else {
       setSelectedDistrict("Edirne Merkez");
     }
@@ -153,7 +149,7 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
               </div>
 
               {/* Province Selector Tabs */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-4">
+              <div className="grid grid-cols-3 gap-2 mb-4">
                 <button
                   type="button"
                   onClick={() => handleProvinceChange("Tekirdağ")}
@@ -178,32 +174,6 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
                 >
                   <MapPin className="w-3.5 h-3.5" />
                   <span>Kırklareli</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleProvinceChange("Çanakkale")}
-                  className={`py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                    selectedProvince === "Çanakkale"
-                      ? "bg-emerald-800 text-white shadow"
-                      : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                  }`}
-                >
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>Çanakkale (Gelibolu)</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleProvinceChange("İstanbul")}
-                  className={`py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                    selectedProvince === "İstanbul"
-                      ? "bg-emerald-800 text-white shadow"
-                      : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                  }`}
-                >
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>İstanbul (Silivri/Çatalca)</span>
                 </button>
 
                 <button
@@ -417,11 +387,13 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
               </button>
 
               <a
-                href={`tel:${contactConfig.phoneRaw}`}
+                href={contactConfig.getWhatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-sm transition"
               >
-                <PhoneCall className="w-4 h-4 text-emerald-400" />
-                <span>Telefonla Ara: {contactConfig.phone}</span>
+                <MessageCircle className="w-4 h-4 text-emerald-400 fill-emerald-400" />
+                <span>WhatsApp: {contactConfig.phone}</span>
               </a>
             </div>
 

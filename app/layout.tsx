@@ -68,7 +68,6 @@ export default function RootLayout({
       { "@type": "AdministrativeArea", name: "Süleymanpaşa" },
       { "@type": "AdministrativeArea", name: "Malkara" },
       { "@type": "AdministrativeArea", name: "Babaeski" },
-      { "@type": "AdministrativeArea", name: "Kapaklı" },
       { "@type": "AdministrativeArea", name: "Ergene" },
       { "@type": "AdministrativeArea", name: "Vize" },
     ],

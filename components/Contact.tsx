@@ -59,16 +59,18 @@ Geri dönüşünüzü rica ederim.`;
             </div>
 
             <div className="space-y-4">
-              {/* Phone */}
+              {/* Phone card converted to WhatsApp */}
               <a
-                href={`tel:${contactConfig.phoneRaw}`}
+                href={contactConfig.getWhatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-emerald-500 transition group"
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition">
-                  <Phone className="w-6 h-6" />
+                  <MessageCircle className="w-6 h-6 fill-current" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400">Hemen Arayın</p>
+                  <p className="text-xs text-slate-400">WhatsApp Danışma Hattı</p>
                   <p className="text-base font-bold text-white group-hover:text-emerald-300 transition">
                     {contactConfig.phone}
                   </p>

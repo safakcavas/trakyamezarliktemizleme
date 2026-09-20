@@ -9,11 +9,13 @@ export default function FloatingCTA() {
       {/* Mobile Fixed Bottom Bar (Visible only on mobile screens < md) */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 shadow-2xl flex items-center gap-2">
         <a
-          href={`tel:${contactConfig.phoneRaw}`}
+          href={contactConfig.getWhatsappUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-slate-900 text-white font-bold text-xs shadow transition active:scale-95"
         >
-          <Phone className="w-4 h-4 text-emerald-400" />
-          <span>Hemen Ara</span>
+          <MessageCircle className="w-4 h-4 text-emerald-400 fill-emerald-400" />
+          <span>{contactConfig.phone}</span>
         </a>
         <a
           href={contactConfig.getWhatsappUrl()}

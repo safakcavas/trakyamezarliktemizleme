@@ -14,12 +14,12 @@ import {
 } from "lucide-react";
 
 export default function Regions() {
-  const [activeProvince, setActiveProvince] = useState<"Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul">("Tekirdağ");
+  const [activeProvince, setActiveProvince] = useState<"Tekirdağ" | "Kırklareli" | "Edirne">("Tekirdağ");
   const districtsInProvince = trakyaDistrictsData.filter((d) => d.province === activeProvince);
   const [selectedDistrict, setSelectedDistrict] = useState(districtsInProvince[0] || trakyaDistrictsData[0]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleProvinceTab = (prov: "Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul") => {
+  const handleProvinceTab = (prov: "Tekirdağ" | "Kırklareli" | "Edirne") => {
     setActiveProvince(prov);
     if (prov !== "Edirne") {
       const first = trakyaDistrictsData.find((d) => d.province === prov);
@@ -135,7 +135,7 @@ export default function Regions() {
             }`}
           >
             <Building2 className="w-4 h-4" />
-            <span>Tekirdağ (11 İlçe)</span>
+            <span>Tekirdağ (9 İlçe)</span>
           </button>
 
           <button
@@ -148,30 +148,6 @@ export default function Regions() {
           >
             <Building2 className="w-4 h-4" />
             <span>Kırklareli (8 İlçe)</span>
-          </button>
-
-          <button
-            onClick={() => handleProvinceTab("Çanakkale")}
-            className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
-              activeProvince === "Çanakkale"
-                ? "bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 scale-105"
-                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-            }`}
-          >
-            <Building2 className="w-4 h-4" />
-            <span>Çanakkale (Gelibolu & Eceabat)</span>
-          </button>
-
-          <button
-            onClick={() => handleProvinceTab("İstanbul")}
-            className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
-              activeProvince === "İstanbul"
-                ? "bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 scale-105"
-                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-            }`}
-          >
-            <Building2 className="w-4 h-4" />
-            <span>İstanbul (Silivri & Çatalca)</span>
           </button>
 
           <button

@@ -1,16 +1,16 @@
 export interface DistrictInfo {
   name: string;
   slug: string;
-  province: "Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul";
+  province: "Tekirdağ" | "Kırklareli" | "Edirne";
   isCenter?: boolean;
   popularVillages: string[];
   allVillagesCount: number;
 }
 
 export const trakyaDistrictsData: DistrictInfo[] = [
-  // ==========================================
-  // 1. TEKİRDAĞ (11 RESMİ İLÇE - BÜYÜKŞEHİR)
-  // ==========================================
+  // ==============================================================
+  // 1. TEKİRDAĞ (9 RESMİ İLÇE - Kapaklı ve Saray hariç)
+  // ==============================================================
   {
     name: "Süleymanpaşa (Tekirdağ Merkez)",
     slug: "suleymanpasa",
@@ -44,16 +44,6 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     allVillagesCount: 12
   },
   {
-    name: "Kapaklı",
-    slug: "kapakli",
-    province: "Tekirdağ",
-    popularVillages: [
-      "Karaağaç", "Yanıkağıl", "Bahçeağıl", "Pınarca", "Karlıköy", "Uzunhacı",
-      "İsmet Paşa", "İnönü", "Cumhuriyet", "Atatürk"
-    ],
-    allVillagesCount: 14
-  },
-  {
     name: "Ergene",
     slug: "ergene",
     province: "Tekirdağ",
@@ -73,16 +63,6 @@ export const trakyaDistrictsData: DistrictInfo[] = [
       "İbribey", "İbrice", "Karacagür", "Kürtüllü", "Mestanlar", "Sarnıç", "Teteköy", "Yaylagöne", "Yörücek"
     ],
     allVillagesCount: 77
-  },
-  {
-    name: "Saray",
-    slug: "saray",
-    province: "Tekirdağ",
-    popularVillages: [
-      "Beyazköy", "Büyükyoncalı", "Çayla", "Çukuryurt", "Demirler", "Edirköy",
-      "Güngörmez", "Kavacık", "Küçükyoncalı", "Kurtdere", "Safaköy", "Süleymaniye", "Yeniköy", "Bahçedere", "Ayvacık"
-    ],
-    allVillagesCount: 29
   },
   {
     name: "Hayrabolu",
@@ -125,9 +105,9 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     allVillagesCount: 10
   },
 
-  // ==========================================
+  // ==============================================================
   // 2. KIRKLARELİ (8 RESMİ İLÇE)
-  // ==========================================
+  // ==============================================================
   {
     name: "Kırklareli Merkez",
     slug: "kirklareli-merkez",
@@ -212,60 +192,12 @@ export const trakyaDistrictsData: DistrictInfo[] = [
       "Karasakallı", "Malkoçlar", "Tatlıpınar", "Terzidere", "Topçular", "Yukarıkanara"
     ],
     allVillagesCount: 16
-  },
-
-  // ========================================================
-  // 3. ÇANAKKALE (TRAKYA / GELİBOLU YARIMADASI RESMİ İLÇELERİ)
-  // ========================================================
-  {
-    name: "Gelibolu",
-    slug: "gelibolu",
-    province: "Çanakkale",
-    popularVillages: [
-      "Bolayır", "Evreşe", "Kavakköy", "Güneyli", "Ilgardere", "Karainebeyli",
-      "Ocaklı", "Sütlüce", "Yeniköy", "Bayırköy", "Cevizli", "Değirmendüzü", "Fındıklı", "Tayfur"
-    ],
-    allVillagesCount: 26
-  },
-  {
-    name: "Eceabat",
-    slug: "eceabat",
-    province: "Çanakkale",
-    popularVillages: [
-      "Alçıtepe", "Behramlı", "Bigali", "Büyükanafarta", "Kilitbahir",
-      "Küçükanafarta", "Seddülbahir", "Kumköy", "Yalova", "Yolağzı"
-    ],
-    allVillagesCount: 12
-  },
-
-  // ========================================================
-  // 4. İSTANBUL (TRAKYA / AVRUPA YAKASI BATI İLÇELERİ)
-  // ========================================================
-  {
-    name: "Silivri",
-    slug: "silivri",
-    province: "İstanbul",
-    popularVillages: [
-      "Selimpaşa", "Gümüşyaka", "Değirmenköy", "Çanta", "Ortaköy", "Kavaklı",
-      "Beyciler", "Büyükçavuşlu", "Fener", "Gazitepe", "Kadıköy", "Kurfallı", "Sayalar", "Seymen"
-    ],
-    allVillagesCount: 35
-  },
-  {
-    name: "Çatalca",
-    slug: "catalca",
-    province: "İstanbul",
-    popularVillages: [
-      "Binkılıç", "Karacaköy", "Çakıl", "Muratbey", "Ormanlı", "Yalıköy",
-      "Çiftlikköy", "Dağyenice", "Ferhatpaşa", "Gökçeali", "İzzettin", "Kestanelik", "Oklalı", "Subaşı"
-    ],
-    allVillagesCount: 39
   }
 ];
 
-// ========================================================
-// 5. EDİRNE (9 RESMİ İLÇE - ÖZEL KARDEŞ SİTE YÖNLENDİRMESİ)
-// ========================================================
+// ==============================================================
+// 3. EDİRNE (9 RESMİ İLÇE - ÖZEL KARDEŞ SİTE YÖNLENDİRMESİ)
+// ==============================================================
 export const edirneRedirectInfo = {
   provinceName: "Edirne",
   siteUrl: "https://edirnemezarliktemizleme.site",

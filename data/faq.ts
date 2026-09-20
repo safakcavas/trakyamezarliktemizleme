@@ -6,7 +6,7 @@ export interface FaqItem {
 export const faqData: FaqItem[] = [
   {
     question: "Trakya genelinde hangi il ve ilçelere hizmet veriyorsunuz?",
-    answer: "Tekirdağ (Süleymanpaşa, Çorlu, Çerkezköy, Kapaklı, Ergene, Malkara, Saray, Hayrabolu, Şarköy, Muratlı, Marmaraereğlisi) ve Kırklareli (Merkez, Lüleburgaz, Babaeski, Vize, Pınarhisar, Demirköy, Pehlivanköy, Kofçaz) başta olmak üzere tüm ilçe ve köylere hizmet veriyoruz. Edirne ili ve köyleri için ise özel kardeş sitemiz edirnemezarliktemizleme.site üzerinden hizmet sağlamaktayız."
+    answer: "Tekirdağ (Süleymanpaşa, Çorlu, Çerkezköy, Ergene, Malkara, Hayrabolu, Şarköy, Muratlı, Marmaraereğlisi) ve Kırklareli (Merkez, Lüleburgaz, Babaeski, Vize, Pınarhisar, Demirköy, Pehlivanköy, Kofçaz) başta olmak üzere tüm ilçe ve köylere hizmet veriyoruz. Edirne ili ve köyleri için ise özel kardeş sitemiz edirnemezarliktemizleme.site üzerinden hizmet sağlamaktayız."
   },
   {
     question: "Mezarlığın yerini ve mezar numarasını tam olarak bilmiyorum, bulabilir misiniz?",

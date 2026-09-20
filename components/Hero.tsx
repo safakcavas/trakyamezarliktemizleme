@@ -59,11 +59,13 @@ export default function Hero() {
               </a>
 
               <a
-                href={`tel:${contactConfig.phoneRaw}`}
+                href={contactConfig.getWhatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 text-slate-100 border border-slate-700 font-semibold text-base transition duration-200"
               >
-                <Phone className="w-5 h-5 text-emerald-400" />
-                <span>Hemen Ara: {contactConfig.phone}</span>
+                <MessageCircle className="w-5 h-5 text-emerald-400" />
+                <span>WhatsApp: {contactConfig.phone}</span>
               </a>
             </div>
 
