@@ -1,26 +1,26 @@
-import { MapPin, Camera, Sparkles, HeartHandshake } from "lucide-react";
+import { MapPin, Camera, Sparkles, ShieldCheck } from "lucide-react";
 
 export default function TrustBar() {
   const stats = [
     {
       icon: MapPin,
-      title: "Trakya ve 400+ Köy",
-      desc: "Tekirdağ ve Kırklareli'nin tüm ilçe ve köylerine yerinde ulaşım",
+      title: "Tüm Trakya Köyleri",
+      desc: "Tekirdağ ve Kırklareli'nin her köyüne kendi araç ve ekipmanımızla ulaşım",
     },
     {
       icon: Camera,
-      title: "Fotoğraf & Video Raporu",
-      desc: "İşlem öncesi ve sonrası HD çekimlerle tam şeffaflık",
+      title: "Fotoğrafla Hızlı Fiyat",
+      desc: "Mezar resmini atın ortalama fiyat verelim veya biz gidip çekelim",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Ödeme Sonrası Güven",
+      desc: "Durum netleşip ödeme alındıktan sonra planlanan günde temizliğe başlanır",
     },
     {
       icon: Sparkles,
-      title: "Özel Mermer Solüsyonu",
-      desc: "Mermeri aşındırmayan, yosun ve kireç sökücü özel formül",
-    },
-    {
-      icon: HeartHandshake,
-      title: "Emanet & Saygı Bilinci",
-      desc: "Geçmişimize hürmetle, kendi aile kabrimiz gibi özen",
+      title: "HD Videolu Teslimat",
+      desc: "İşlem öncesi ve sonrası detaylı video/fotoğraflar WhatsApp'tan teslim edilir",
     },
   ];
 

@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { contactConfig } from "@/data/contact";
 import {
-  MessageCircle,
-  Phone,
   CheckCircle2,
   Camera,
   MapPin,
@@ -38,34 +36,33 @@ export default function Hero() {
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
               Uzakta veya yurt dışında olsanız dahi sevdiklerinizin kabirleri asla ihmal edilmez.
-              Mermer beyazlatma, yabani ot temizliği, çiçek ekimi ve taş yazı boyama hizmetleriyle
-              kabirleri tertemiz yapıyor;{" "}
+              <strong className="text-white font-semibold block sm:inline"> Mezarın fotoğrafını gönderin, anında ortalama fiyat verelim.</strong> Ya da fotoğrafınız yoksa biz mezarlığa gidip güncel durum resmini çekelim;{" "}
               <strong className="text-emerald-300 font-semibold">
-                öncesi ve sonrası HD fotoğraf/video
+                ödemeyi alıp hemen temizliğe başlayalım
               </strong>{" "}
-              ile anında WhatsApp’tan paylaşıyoruz.
+              ve işlem bitiminde HD video/fotoğrafla teslim edelim.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <a
-                href={contactConfig.getWhatsappUrl()}
+                href={contactConfig.getWhatsappUrl("Merhaba, mezarımızın fotoğrafını gönderip ortalama fiyat teklifi almak istiyorum.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center gap-3 px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-lg shadow-emerald-900/40 hover:shadow-emerald-900/60 transition duration-200 hover:-translate-y-0.5"
+                className="w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-900/40 hover:shadow-emerald-900/60 transition duration-200 hover:-translate-y-0.5"
               >
-                <MessageCircle className="w-5 h-5 fill-white" />
-                <span>WhatsApp’tan Fiyat Al</span>
+                <Camera className="w-5 h-5" />
+                <span>Mezar Resmi Gönder & Fiyat Al</span>
               </a>
 
               <a
-                href={contactConfig.getWhatsappUrl()}
+                href={contactConfig.getWhatsappUrl("Merhaba, mezarımızın fotoğrafı yok. Konum ve merhum bilgilerini iletsem gidip fotoğraf çekebilir misiniz?")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 text-slate-100 border border-slate-700 font-semibold text-base transition duration-200"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 text-slate-100 border border-slate-700 font-semibold text-sm sm:text-base transition duration-200"
               >
-                <MessageCircle className="w-5 h-5 text-emerald-400" />
-                <span>WhatsApp: {contactConfig.phone}</span>
+                <MapPin className="w-5 h-5 text-emerald-400" />
+                <span>Resim Yoksa: Biz Gidip Çekelim</span>
               </a>
             </div>
 
@@ -137,49 +134,61 @@ export default function Hero() {
                     ✓
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-base">Hızlı Bilgi & Fiyat Teklifi</h3>
-                    <p className="text-xs text-slate-400">Tek tıkla mezar yerini iletin, fiyat verelim</p>
+                    <h3 className="font-bold text-white text-base">2 Kolay Başlangıç Yolu</h3>
+                    <p className="text-xs text-slate-400">Resim gönderin veya biz gidip çekelim</p>
                   </div>
                 </div>
                 <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  Aktif Hizmet
+                  Şeffaf Süreç
                 </span>
               </div>
 
               {/* Service step list */}
-              <div className="space-y-3.5 text-sm">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-emerald-800 text-emerald-200 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
-                    1
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/70 border border-emerald-800/40">
+                  <div className="w-6 h-6 rounded-full bg-emerald-700 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                    1A
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-200">Mezar Yeri & Köyü İletin</p>
-                    <p className="text-xs text-slate-400">
-                      WhatsApp üzerinden ilçe, köy veya mezarlık mevkisini bize yazın.
+                    <p className="font-semibold text-emerald-300">Fotoğraf Varsa: WhatsApp&apos;tan Atın</p>
+                    <p className="text-xs text-slate-300">
+                      Mezarın mevcut resmini gönderin, duruma göre hemen ortalama fiyat verelim.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-emerald-800 text-emerald-200 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/70 border border-teal-800/40">
+                  <div className="w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                    1B
+                  </div>
+                  <div>
+                    <p className="font-semibold text-teal-300">Fotoğraf Yoksa: Biz Gidip Çekelim</p>
+                    <p className="text-xs text-slate-300">
+                      Kabir yerini bildirin, köye gidip mezarın güncel halini fotoğraflayıp size atalım.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                  <div className="w-6 h-6 rounded-full bg-emerald-900 text-emerald-300 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                     2
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-200">Yerinde Keşif ve Tespit</p>
+                    <p className="font-semibold text-slate-200">Ödeme Alınır & İşe Başlanır</p>
                     <p className="text-xs text-slate-400">
-                      Kabri buluyor, ilk durum fotoğraf ve videosunu çekip ihtiyaçları netleştiriyoruz.
+                      Fiyat kesinleşip ödeme alındıktan sonra mobil ekibimiz itinalı bakıma başlar.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <div className="w-6 h-6 rounded-full bg-emerald-800 text-emerald-200 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                  <div className="w-6 h-6 rounded-full bg-emerald-900 text-emerald-300 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                     3
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-200">Titiz Temizlik & Teslimat</p>
+                    <p className="font-semibold text-slate-200">Videolu & Fotoğraflı Teslimat</p>
                     <p className="text-xs text-slate-400">
-                      Otlar temizlenir, mermer yıkanır, yazılar boyanır ve video anında WhatsApp&apos;tan iletilir.
+                      Tamamlanan bakımın öncesi/sonrası HD video ve fotoğrafları WhatsApp&apos;tan iletilir.
                     </p>
                   </div>
                 </div>

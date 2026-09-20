@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { contactConfig } from "@/data/contact";
-import { Phone, MessageCircle, Menu, X, MapPin, Sparkles, ExternalLink } from "lucide-react";
+import { MessageCircle, Menu, X, MapPin, Sparkles, ExternalLink } from "lucide-react";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -8,13 +8,13 @@ import {
   CheckSquare,
   Square,
   MessageCircle,
-  PhoneCall,
   MapPin,
-  Sparkles,
   Tag,
   CheckCircle,
   ExternalLink,
   AlertCircle,
+  Camera,
+  Car,
 } from "lucide-react";
 
 interface ServiceOption {
@@ -36,6 +36,7 @@ export default function QuoteCalculator() {
   const [selectedProvince, setSelectedProvince] = useState<"Tekirdağ" | "Kırklareli" | "Edirne">("Tekirdağ");
   const [selectedDistrict, setSelectedDistrict] = useState<string>("Süleymanpaşa (Tekirdağ Merkez)");
   const [village, setVillage] = useState("");
+  const [photoStatus, setPhotoStatus] = useState<"has_photo" | "needs_visit">("has_photo");
   const [selectedServices, setSelectedServices] = useState<string[]>([
     "mermer",
     "ot",
@@ -88,11 +89,20 @@ export default function QuoteCalculator() {
       .filter(Boolean)
       .join("\n- ");
 
+    const photoNote =
+      photoStatus === "has_photo"
+        ? "📸 Elimde mezarın fotoğrafı var, WhatsApp'tan fotoğrafı gönderiyorum (Ortalama fiyat talebi)."
+        : "🚗 Mezara siz gidip fotoğraf çekin (Yerinde tespit, keşif & mezar fotoğrafı çekimi talebi).";
+
     const msg = `*trakyamezarliktemizleme.site üzerinden Fiyat Teklifi Talebi*
 ----------------------------------
 *İl:* ${selectedProvince}
 *İlçe:* ${selectedDistrict}
 *Köy / Mezarlık:* ${village || "Belirtilmedi"}
+
+*Mezar Fotoğraf Durumu:*
+${photoNote}
+
 *Seçilen Hizmetler:*
 - ${serviceNames || "Hiçbiri seçilmedi"}
 
@@ -101,7 +111,11 @@ export default function QuoteCalculator() {
 *İletişim Tel:* ${phone || "Belirtilmedi"}
 *Ekstra Not:* ${notes || "Yok"}
 ----------------------------------
-Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediyorum.`;
+${
+  photoStatus === "has_photo"
+    ? "Göndereceğim mezar fotoğrafına göre ortalama fiyat teklifi rica ediyorum. Fiyat onaylanıp ödeme yapıldıktan sonra işleme başlanabilir."
+    : "Mezarlık mevkiine gidilip mezar fotoğrafının çekilmesini ve fiyat netleşip ödeme yapıldıktan sonra bakıma başlanmasını rica ediyorum."
+}`;
 
     const waUrl = contactConfig.getWhatsappUrl(msg);
     setSubmitted(true);
@@ -133,6 +147,16 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
 
         {/* Form Card */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 text-slate-900 shadow-2xl border border-emerald-900/40">
+          {/* Top Workflow Banner */}
+          <div className="mb-8 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+              <Camera className="w-5 h-5" />
+            </div>
+            <p className="leading-relaxed">
+              <strong>Nasıl Çalışıyoruz?</strong> Mezarın resmini WhatsApp&apos;tan gönderin, hemen ortalama fiyat verelim. Ya da mezarın yeri bildirilsin; biz gidip fotoğrafını çekelim, durumu netleştirelim. <strong>Ödemeyi alıp hemen temizliğe başlayalım.</strong>
+            </p>
+          </div>
+
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Step 1: Location & District */}
             <div>
@@ -273,11 +297,78 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
               </p>
             </div>
 
-            {/* Step 2: Desired Services */}
+            {/* Step 2: Photo Status */}
+            <div className="pt-2 border-t border-slate-100">
+              <div className="flex items-center justify-between mb-3">
+                <label className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold">
+                    2
+                  </span>
+                  <span>Mezarın Fotoğrafı Elinizde Var mı?</span>
+                </label>
+                <span className="text-xs text-emerald-800 font-semibold hidden sm:inline">
+                  Hızlı Fiyat veya Yerinde Çekim
+                </span>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={() => setPhotoStatus("has_photo")}
+                  className={`flex items-start gap-3 p-4 rounded-2xl border text-left transition cursor-pointer ${
+                    photoStatus === "has_photo"
+                      ? "bg-emerald-50/90 border-emerald-600 ring-2 ring-emerald-500/20 shadow-sm"
+                      : "bg-slate-50 border-slate-200 hover:bg-slate-100"
+                  }`}
+                >
+                  <div className="mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 border-emerald-700">
+                    {photoStatus === "has_photo" && (
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-700" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                      <Camera className="w-4 h-4 text-emerald-700" />
+                      <span>Fotoğrafım Var (WhatsApp&apos;tan Atacağım)</span>
+                    </p>
+                    <p className="text-xs text-slate-600 mt-1">
+                      Mezarın mevcut fotoğrafını gönderin, duruma göre hemen ortalama fiyat verelim.
+                    </p>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setPhotoStatus("needs_visit")}
+                  className={`flex items-start gap-3 p-4 rounded-2xl border text-left transition cursor-pointer ${
+                    photoStatus === "needs_visit"
+                      ? "bg-teal-50/90 border-teal-600 ring-2 ring-teal-500/20 shadow-sm"
+                      : "bg-slate-50 border-slate-200 hover:bg-slate-100"
+                  }`}
+                >
+                  <div className="mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 border-teal-700">
+                    {photoStatus === "needs_visit" && (
+                      <span className="w-2.5 h-2.5 rounded-full bg-teal-700" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                      <Car className="w-4 h-4 text-teal-700" />
+                      <span>Fotoğrafım Yok (Siz Gidip Çekin)</span>
+                    </p>
+                    <p className="text-xs text-slate-600 mt-1">
+                      Mezar yerini bildirin, köye gidip güncel durum resmini biz çekelim, ödeme sonrası başlayalım.
+                    </p>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* Step 3: Desired Services */}
             <div className="pt-2 border-t border-slate-100">
               <label className="block text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold">
-                  2
+                  3
                 </span>
                 <span>Bu Ziyarette Yapılmasını İstediğiniz Hizmetleri Seçin</span>
               </label>
@@ -314,11 +405,11 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
               </div>
             </div>
 
-            {/* Step 3: Contact details */}
+            {/* Step 4: Contact details */}
             <div className="pt-2 border-t border-slate-100">
               <label className="block text-sm font-bold text-slate-900 mb-2 flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold">
-                  3
+                  4
                 </span>
                 <span>İletişim ve Varsa Özel Notunuz</span>
               </label>
@@ -347,7 +438,7 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
               />
             </div>
 
-            {/* Step 4: Estimated Price Bar */}
+            {/* Step 5: Estimated Price Bar */}
             <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-center sm:text-left">
                 <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center justify-center sm:justify-start gap-1">
@@ -364,8 +455,8 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
                     </span>
                   )}
                 </div>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  * 1 tek ziyarette eksiksiz teslimat ve WhatsApp video onayı dahildir.
+                <p className="text-[11px] text-slate-600 mt-1">
+                  * Fotoğraf tespiti sonrası kesinleşen tutarda <strong>ödeme alınır ve bakıma başlanır.</strong>
                 </p>
               </div>
 
@@ -382,8 +473,16 @@ Bu bilgiler doğrultusunda 1 ziyaretlik kesin fiyat ve uygunluk teyidi rica ediy
                 type="submit"
                 className="flex-1 flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-base shadow-lg shadow-emerald-900/20 transition duration-200 hover:-translate-y-0.5 cursor-pointer"
               >
-                <MessageCircle className="w-5 h-5 fill-white" />
-                <span>WhatsApp&apos;tan 1 Ziyaret Teklifi Al</span>
+                {photoStatus === "has_photo" ? (
+                  <Camera className="w-5 h-5" />
+                ) : (
+                  <MessageCircle className="w-5 h-5 fill-white" />
+                )}
+                <span>
+                  {photoStatus === "has_photo"
+                    ? "WhatsApp'tan Fotoğraf Gönder & Ortalama Fiyat Al"
+                    : "WhatsApp'tan Mezar Yerini İlet (Resim Çekimi)"}
+                </span>
               </button>
 
               <a

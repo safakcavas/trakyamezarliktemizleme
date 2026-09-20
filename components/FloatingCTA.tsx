@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { contactConfig } from "@/data/contact";
 
 export default function FloatingCTA() {

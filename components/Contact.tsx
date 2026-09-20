@@ -3,32 +3,44 @@
 import { useState } from "react";
 import { contactConfig } from "@/data/contact";
 import {
-  Phone,
   MessageCircle,
   Clock,
   MapPin,
   Send,
   CheckCircle,
   ExternalLink,
+  Camera,
+  Car,
 } from "lucide-react";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [district, setDistrict] = useState("");
+  const [photoOption, setPhotoOption] = useState<"foto_var" | "foto_yok">("foto_var");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const photoText =
+      photoOption === "foto_var"
+        ? "📸 Mezar resmi göndereceğim (Ortalama fiyat talebi)"
+        : "🚗 Mezara gidip resim çekilmesini istiyorum (Yerinde tespit & keşif)";
+
     const text = `*trakyamezarliktemizleme.site İletişim Formu Talebi*
 ----------------------------------
 *Ad Soyad:* ${name}
 *Telefon:* ${phone}
 *İlçe / Köy:* ${district}
+*Fotoğraf Durumu:* ${photoText}
 *Talep / Not:* ${message}
 ----------------------------------
-Geri dönüşünüzü rica ederim.`;
+${
+  photoOption === "foto_var"
+    ? "WhatsApp üzerinden fotoğrafı gönderiyorum, ortalama fiyat teklifi rica ederim."
+    : "Mezar yerine gidilip fotoğraf çekilmesini ve fiyat netleşip ödeme sonrası başlanmasını rica ederim."
+}`;
 
     const waUrl = contactConfig.getWhatsappUrl(text);
     setSubmitted(true);
@@ -52,9 +64,8 @@ Geri dönüşünüzü rica ederim.`;
                 Bizimle İletişime Geçin
               </h2>
               <p className="text-slate-300 mt-3 text-base leading-relaxed">
-                Tekirdağ, Kırklareli ve tüm Trakya köylerindeki mezarlık bakım, mermer beyazlatma,
-                çiçek ekimi ve yazı boyama talepleriniz için dilediğiniz an
-                ulaşabilirsiniz.
+                Mezarın fotoğrafını WhatsApp&apos;tan atın ortalama fiyat verelim ya da mezara gidip resmini biz çekelim.
+                Fiyat kesinleşip <strong className="text-emerald-300 font-semibold">ödeme alındıktan sonra</strong> hemen bakım ve temizliğe başlıyoruz.
               </p>
             </div>
 
@@ -182,6 +193,40 @@ Geri dönüşünüzü rica ederim.`;
                       onChange={(e) => setDistrict(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500"
                     />
+                  </div>
+                </div>
+
+                {/* Photo Option Choice */}
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-2">
+                    Mezar Fotoğraf Durumu
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setPhotoOption("foto_var")}
+                      className={`flex items-center gap-2.5 p-3 rounded-xl border text-left text-xs font-medium transition cursor-pointer ${
+                        photoOption === "foto_var"
+                          ? "bg-emerald-950/80 border-emerald-500 text-emerald-300"
+                          : "bg-slate-900 border-slate-700 text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      <Camera className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>Resim Var (WhatsApp&apos;tan Atacağım)</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setPhotoOption("foto_yok")}
+                      className={`flex items-center gap-2.5 p-3 rounded-xl border text-left text-xs font-medium transition cursor-pointer ${
+                        photoOption === "foto_yok"
+                          ? "bg-teal-950/80 border-teal-500 text-teal-300"
+                          : "bg-slate-900 border-slate-700 text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      <Car className="w-4 h-4 text-teal-400 shrink-0" />
+                      <span>Resim Yok (Siz Gidip Çekin)</span>
+                    </button>
                   </div>
                 </div>
 

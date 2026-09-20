@@ -167,7 +167,7 @@ export default function Packages() {
 
         {/* Bottom Note */}
         <p className="text-center text-xs text-slate-500 mt-10">
-          * Belirtilen tüm paket fiyatları <strong>1 ziyaret (tek seferlik tam uygulama)</strong> için geçerlidir. Fiyatlar köy mesafesi ve mermer durumuna göre netleştirilir.
+          * Belirtilen tüm paket fiyatları <strong>1 ziyaret (tek seferlik tam uygulama)</strong> için geçerlidir. WhatsApp&apos;tan göndereceğiniz mezar fotoğrafına veya ekibimizin yerinde çekeceği mezar resmine göre fiyat netleştirilir; <strong>ödeme alındıktan sonra</strong> bakıma başlanır.
         </p>
       </div>
     </section>

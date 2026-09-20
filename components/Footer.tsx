@@ -1,6 +1,6 @@
 import { contactConfig } from "@/data/contact";
 import { trakyaDistrictsData } from "@/data/regions";
-import { Sparkles, Phone, MessageCircle, MapPin, Heart, ExternalLink } from "lucide-react";
+import { Sparkles, MessageCircle, MapPin, Heart, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   const tekirdagDistricts = trakyaDistrictsData.filter((d) => d.province === "Tekirdağ");
