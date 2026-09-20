@@ -9,6 +9,7 @@ import Process from "@/components/Process";
 import Packages from "@/components/Packages";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import BlogSection from "@/components/BlogSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -26,6 +27,7 @@ export default function Home() {
       <Process />
       <Packages />
       <Testimonials />
+      <BlogSection />
       <FAQ />
       <Contact />
       <Footer />

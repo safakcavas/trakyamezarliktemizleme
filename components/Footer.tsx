@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { contactConfig } from "@/data/contact";
 import { trakyaDistrictsData } from "@/data/regions";
 import { Sparkles, MessageCircle, MapPin, Heart, ExternalLink } from "lucide-react";
@@ -52,39 +53,54 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <a href="#hizmetler" className="hover:text-emerald-400 transition">
+                <Link href="/blog" className="text-emerald-400 font-semibold hover:text-emerald-300 transition flex items-center gap-1">
+                  <span>Mezar Bakım Blogu & Rehberler</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#hizmetler" className="hover:text-emerald-400 transition">
                   Hizmetlerimiz
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#oncesi-sonrasi" className="hover:text-emerald-400 transition">
+                <Link href="/#oncesi-sonrasi" className="hover:text-emerald-400 transition">
                   Öncesi / Sonrası Çalışmalar
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#bolgeler" className="hover:text-emerald-400 transition">
+                <Link href="/#bolgeler" className="hover:text-emerald-400 transition">
                   Hizmet Verilen Bölgeler
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#surec" className="hover:text-emerald-400 transition">
+                <Link href="/#surec" className="hover:text-emerald-400 transition">
                   Nasıl Çalışıyoruz?
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#paketler" className="hover:text-emerald-400 transition">
+                <Link href="/#paketler" className="hover:text-emerald-400 transition">
                   Bakım Paketleri & Fiyatlar
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#fiyat-teklifi" className="hover:text-emerald-400 transition">
+                <Link href="/#fiyat-teklifi" className="hover:text-emerald-400 transition">
                   Hızlı Fiyat Teklifi Al
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#sss" className="hover:text-emerald-400 transition">
+                <Link href="/blog/mezar-mermeri-nasil-beyazlatilir-asitsiz-temizlik" className="hover:text-emerald-400 transition">
+                  Mermer Beyazlatma Rehberi
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/gurbetciler-icin-trakyada-kabir-bakim-hizmeti" className="hover:text-emerald-400 transition">
+                  Gurbetçilere Kabir Bakımı
+                </Link>
+              </li>
+              <li>
+                <Link href="/#sss" className="hover:text-emerald-400 transition">
                   Sıkça Sorulan Sorular
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -101,14 +117,14 @@ export default function Footer() {
                 </span>
                 <div className="grid grid-cols-2 gap-1 text-xs text-slate-400">
                   {tekirdagDistricts.map((d) => (
-                    <a
+                    <Link
                       key={d.slug}
-                      href="#bolgeler"
+                      href="/#bolgeler"
                       className="hover:text-emerald-400 transition flex items-center gap-1"
                     >
                       <span className="text-emerald-600 font-bold">•</span>
                       <span className="truncate">{d.name.replace(" (Tekirdağ Merkez)", "")}</span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -119,14 +135,14 @@ export default function Footer() {
                 </span>
                 <div className="grid grid-cols-2 gap-1 text-xs text-slate-400">
                   {kirklareliDistricts.map((d) => (
-                    <a
+                    <Link
                       key={d.slug}
-                      href="#bolgeler"
+                      href="/#bolgeler"
                       className="hover:text-emerald-400 transition flex items-center gap-1"
                     >
                       <span className="text-emerald-600 font-bold">•</span>
                       <span className="truncate">{d.name.replace(" Merkez", "")}</span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

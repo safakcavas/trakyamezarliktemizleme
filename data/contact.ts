@@ -13,5 +13,6 @@ export const contactConfig = {
     const defaultMsg = "Merhaba, trakyamezarliktemizleme.site üzerinden ulaşıyorum. Trakya bölgesindeki mezar bakım ve temizlik hizmetiniz hakkında bilgi ve fiyat teklifi almak istiyorum.";
     const text = encodeURIComponent(customMessage || defaultMsg);
     return `https://wa.me/905302301522?text=${text}`;
-  }
+  },
+  getPhoneUrl: () => `tel:+905302301522`,
 };

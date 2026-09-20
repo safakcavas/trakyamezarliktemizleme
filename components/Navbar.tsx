@@ -9,14 +9,15 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: "Hizmetlerimiz", href: "#hizmetler" },
-    { name: "Öncesi / Sonrası", href: "#oncesi-sonrasi" },
-    { name: "Hizmet Bölgeleri", href: "#bolgeler" },
-    { name: "Nasıl Çalışıyoruz?", href: "#surec" },
-    { name: "Paketler", href: "#paketler" },
-    { name: "Fiyat Al", href: "#fiyat-teklifi" },
-    { name: "SSS", href: "#sss" },
-    { name: "İletişim", href: "#iletisim" },
+    { name: "Hizmetlerimiz", href: "/#hizmetler" },
+    { name: "Öncesi / Sonrası", href: "/#oncesi-sonrasi" },
+    { name: "Hizmet Bölgeleri", href: "/#bolgeler" },
+    { name: "Nasıl Çalışıyoruz?", href: "/#surec" },
+    { name: "Paketler", href: "/#paketler" },
+    { name: "Fiyat Al", href: "/#fiyat-teklifi" },
+    { name: "Blog", href: "/blog" },
+    { name: "SSS", href: "/#sss" },
+    { name: "İletişim", href: "/#iletisim" },
   ];
 
   return (
@@ -79,13 +80,13 @@ export default function Navbar() {
             {/* Desktop Menu */}
             <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-slate-700">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="hover:text-emerald-700 transition-colors py-1"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -164,14 +165,14 @@ export default function Navbar() {
             </div>
             <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
