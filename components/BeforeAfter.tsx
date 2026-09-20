@@ -12,6 +12,10 @@ interface CaseStudy {
   beforeNotes: string[];
   afterNotes: string[];
   badge: string;
+  beforeImage: string;
+  afterImage: string;
+  beforeTag: string;
+  afterTag: string;
 }
 
 const cases: CaseStudy[] = [
@@ -20,6 +24,10 @@ const cases: CaseStudy[] = [
     title: "Yıllardır Bakımsız Kalmış Mermer Mezar Temizliği",
     location: "Tekirdağ / Çorlu Önerler Mezarlığı",
     badge: "Mermer Beyazlatma & Çiçek Dikimi",
+    beforeImage: "/images/before-case1.jpg",
+    afterImage: "/images/after-case1.jpg",
+    beforeTag: "Yosun & Dikenler",
+    afterTag: "Canlı Çiçekler & Yazı Boyama",
     beforeNotes: [
       "Yoğun kara yosun ve çamur lekesi oluşmuş mermer yüzey",
       "Mezar üstünü ve etrafını saran yabani dikenler",
@@ -38,6 +46,10 @@ const cases: CaseStudy[] = [
     title: "Trakya Köyü Kabir Bakımı & Taş Yazısı Yenileme",
     location: "Kırklareli / Lüleburgaz Hamitabat Köyü",
     badge: "Taş Yazısı & Çalı Budama",
+    beforeImage: "/images/before-case2.jpg",
+    afterImage: "/images/after-case2.jpg",
+    beforeTag: "Çalılar & Silik Kitabe",
+    afterTag: "Budanmış Çevre & Net Yazılar",
     beforeNotes: [
       "Mezarın üzerini kapatmış yabani ağaç ve çalı dalları",
       "Okunamaz hale gelmiş 25 yıllık baş taşı yazıları",
@@ -56,6 +68,10 @@ const cases: CaseStudy[] = [
     title: "Malkara Köyü Bayram Öncesi Çiçeklendirme",
     location: "Tekirdağ / Malkara Kozyörük Köyü",
     badge: "Bayramlık Bakım & Sulama",
+    beforeImage: "/images/before-case3.jpg",
+    afterImage: "/images/after-case3.jpg",
+    beforeTag: "Kuru & Çatlamış Toprak",
+    afterTag: "Taze Dikim & Can Suyu",
     beforeNotes: [
       "Kurumuş eski çalılar ve sararmış yabani otlar",
       "Havasızlıktan sertleşmiş ve çatlamış mezar toprağı",
@@ -74,6 +90,10 @@ const cases: CaseStudy[] = [
     title: "Babaeski Aile Kabristanı Komple Yenileme",
     location: "Kırklareli / Babaeski Alpullu Mezarlığı",
     badge: "Komple Yenileme & Derz Onarımı",
+    beforeImage: "/images/before-cleaning.jpg",
+    afterImage: "/images/after-cleaning.jpg",
+    beforeTag: "Ayrık Derzler & Sarmaşık",
+    afterTag: "Yenilenmiş Derz & Beyaz Mermer",
     beforeNotes: [
       "Kış donu sebebiyle açılmış mermer köşeleri",
       "Yabani sarmaşıkların sardığı mezar baş taşı",
@@ -162,8 +182,8 @@ export default function BeforeAfter() {
                   {/* Real Photo Before */}
                   <div className="relative rounded-xl overflow-hidden aspect-[4/3] border border-red-900/50 group shadow-md">
                     <Image
-                      src="/images/before-cleaning.jpg"
-                      alt="Temizlik Öncesi Bakımsız Mezar"
+                      src={current.beforeImage}
+                      alt={`${current.title} - Bakım Öncesi`}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -171,7 +191,7 @@ export default function BeforeAfter() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-black/20" />
                     <div className="absolute bottom-3 left-3 right-3 text-xs text-red-300 font-semibold flex items-center justify-between">
                       <span>⚠️ Bakım Öncesi İlk Tespit</span>
-                      <span className="text-[11px] bg-red-950/90 px-2 py-0.5 rounded border border-red-800 text-red-300">Yosun & Dikenler</span>
+                      <span className="text-[11px] bg-red-950/90 px-2 py-0.5 rounded border border-red-800 text-red-300">{current.beforeTag}</span>
                     </div>
                   </div>
 
@@ -199,8 +219,8 @@ export default function BeforeAfter() {
                   {/* Real Photo After */}
                   <div className="relative rounded-xl overflow-hidden aspect-[4/3] border border-emerald-800/50 group shadow-md">
                     <Image
-                      src="/images/after-cleaning.jpg"
-                      alt="Temizlik Sonrası Beyazlatılmış Çiçekli Mezar"
+                      src={current.afterImage}
+                      alt={`${current.title} - Bakım Sonrası`}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -208,7 +228,7 @@ export default function BeforeAfter() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-black/20" />
                     <div className="absolute bottom-3 left-3 right-3 text-xs text-emerald-300 font-semibold flex items-center justify-between">
                       <span className="flex items-center gap-1"><Sparkles className="w-3.5 h-3.5 text-emerald-400 inline" /> Pırıl Pırıl Teslimat</span>
-                      <span className="text-[11px] bg-emerald-950/90 px-2 py-0.5 rounded border border-emerald-700 text-emerald-300">Canlı Çiçekler & Yazı Boyama</span>
+                      <span className="text-[11px] bg-emerald-950/90 px-2 py-0.5 rounded border border-emerald-700 text-emerald-300">{current.afterTag}</span>
                     </div>
                   </div>
 
