@@ -1,14 +1,16 @@
 export interface DistrictInfo {
   name: string;
   slug: string;
-  province: "Tekirdağ" | "Kırklareli" | "Edirne";
+  province: "Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul";
   isCenter?: boolean;
   popularVillages: string[];
   allVillagesCount: number;
 }
 
 export const trakyaDistrictsData: DistrictInfo[] = [
-  // --- TEKİRDAĞ İLÇELERİ ---
+  // ==========================================
+  // 1. TEKİRDAĞ (11 RESMİ İLÇE - BÜYÜKŞEHİR)
+  // ==========================================
   {
     name: "Süleymanpaşa (Tekirdağ Merkez)",
     slug: "suleymanpasa",
@@ -17,19 +19,19 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     popularVillages: [
       "Kumbağ", "Barbaros", "Banarlı", "Karacakılavuz", "Ferhadanlı", "Kaşıkçı",
       "Dedebeyli", "Osmanlı", "Köseilyas", "Yukarıkılıçlı", "Bıyıkali", "Naip",
-      "Işıklar", "Yazır", "Gündüzlü", "Seymenli", "Köseilyas", "Yağcı"
+      "Işıklar", "Yazır", "Gündüzlü", "Seymenli", "Yağcı", "İnecik", "Karaevli", "Semrekli"
     ],
-    allVillagesCount: 56
+    allVillagesCount: 73
   },
   {
     name: "Çorlu",
     slug: "corlu",
     province: "Tekirdağ",
     popularVillages: [
-      "Yenice", "Seymen", "Şahpaz", "Türkgücü", "Önerler", "Dereoğlu",
-      "Maksutlu", "Sarılar", "Zafer", "Cumhuriyet", "Alipaşa", "Hatip"
+      "Önerler", "Seymen", "Yenice", "Şahpaz", "Türkgücü", "Dereoğlu",
+      "Maksutlu", "Sarılar", "Zafer", "Cumhuriyet", "Alipaşa", "Hatip", "Hıdırağa"
     ],
-    allVillagesCount: 16
+    allVillagesCount: 26
   },
   {
     name: "Çerkezköy",
@@ -37,16 +39,17 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     province: "Tekirdağ",
     popularVillages: [
       "Kızılpınar", "Veliköy", "Bağlık", "Fevzipaşa", "Gazi Mustafa Kemal",
-      "İstasyon", "Yıldırım Beyazıt"
+      "İstasyon", "Yıldırım Beyazıt", "Cumhuriyet"
     ],
-    allVillagesCount: 10
+    allVillagesCount: 12
   },
   {
     name: "Kapaklı",
     slug: "kapakli",
     province: "Tekirdağ",
     popularVillages: [
-      "Karaağaç", "Yanıkağıl", "Bahçeağıl", "Pınarca", "Karlıköy", "Uzunhacı"
+      "Karaağaç", "Yanıkağıl", "Bahçeağıl", "Pınarca", "Karlıköy", "Uzunhacı",
+      "İsmet Paşa", "İnönü", "Cumhuriyet", "Atatürk"
     ],
     allVillagesCount: 14
   },
@@ -55,8 +58,8 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     slug: "ergene",
     province: "Tekirdağ",
     popularVillages: [
-      "Misinli", "Ulaş", "Vakıflar", "Velimeşe", "Ahimehmet", "Bakırca",
-      "İğneler", "Karamehmet", "Kırkgöz", "Pınarbaşı", "Yeşiltepe"
+      "Velimeşe", "Misinli", "Ulaş", "Vakıflar", "Ahimehmet", "Bakırca",
+      "İğneler", "Karamehmet", "Kırkgöz", "Pınarbaşı", "Yeşiltepe", "Sağlık", "Cumhuriyet"
     ],
     allVillagesCount: 17
   },
@@ -65,10 +68,9 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     slug: "malkara",
     province: "Tekirdağ",
     popularVillages: [
-      "Balabancık", "Ballı", "Batkın", "Camiatik", "Çavuşköy", "Çınarlıdere",
-      "Danışment", "Develi", "Doğanköy", "Elmabağ", "Gözsüz", "Hemit",
-      "İbribey", "İbrice", "Karacagür", "Kozyörük", "Kürtüllü", "Mestanlar",
-      "Sağlamtaş", "Sarnıç", "Teteköy", "Yaylagöne", "Yörücek"
+      "Kozyörük", "Balabancık", "Sağlamtaş", "Ballı", "Batkın", "Camiatik", "Çavuşköy",
+      "Çınarlıdere", "Danışment", "Develi", "Doğanköy", "Elmabağ", "Gözsüz", "Hemit",
+      "İbribey", "İbrice", "Karacagür", "Kürtüllü", "Mestanlar", "Sarnıç", "Teteköy", "Yaylagöne", "Yörücek"
     ],
     allVillagesCount: 77
   },
@@ -78,7 +80,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     province: "Tekirdağ",
     popularVillages: [
       "Beyazköy", "Büyükyoncalı", "Çayla", "Çukuryurt", "Demirler", "Edirköy",
-      "Güngörmez", "Kavacık", "Küçükyoncalı", "Kurtdere", "Safaköy", "Sülaymaniye", "Yeniköy"
+      "Güngörmez", "Kavacık", "Küçükyoncalı", "Kurtdere", "Safaköy", "Süleymaniye", "Yeniköy", "Bahçedere", "Ayvacık"
     ],
     allVillagesCount: 29
   },
@@ -87,7 +89,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     slug: "hayrabolu",
     province: "Tekirdağ",
     popularVillages: [
-      "Avluobası", "Aydınlar", "Büyükkarakarlı", "Canhıdır", "Çerkezmüsellim",
+      "Çerkezmüsellim", "Şalgamlı", "Avluobası", "Aydınlar", "Büyükkarakarlı", "Canhıdır",
       "Çıkrıkçı", "Dambaslar", "Delemenler", "Hedeyli", "Kadriye", "Kandamış",
       "Karababa", "Karayahşi", "Kılıçlar", "Lahana", "Ördeklidere", "Subaşı", "Temrezli"
     ],
@@ -98,8 +100,8 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     slug: "sarkoy",
     province: "Tekirdağ",
     popularVillages: [
-      "Eriklice", "Hoşköy", "Mürefte", "Uçmakdere", "Gaziköy", "Tepeköy",
-      "Kirazlı", "Yeniköy", "Çengelli", "Çınarlı", "Gölcük", "İğdebağları", "Kocaali"
+      "Mürefte", "Hoşköy", "Eriklice", "Uçmakdere", "Gaziköy", "Tepeköy",
+      "Kirazlı", "Yeniköy", "Çengelli", "Çınarlı", "Gölcük", "İğdebağları", "Kocaali", "Beyoğlu"
     ],
     allVillagesCount: 31
   },
@@ -108,8 +110,8 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     slug: "muratli",
     province: "Tekirdağ",
     popularVillages: [
-      "Aşağısevindikli", "Aydınköy", "Balabanlı", "Ballıhoca", "Hanoğlu", "İnanlı",
-      "Kırkkepenekli", "Müsellim", "Yenibecer", "Yukarısevindikli", "Yeşilsırt"
+      "Aşağısevindikli", "Yukarısevindikli", "Aydınköy", "Balabanlı", "Ballıhoca", "Hanoğlu",
+      "İnanlı", "Kırkkepenekli", "Müsellim", "Yenibecer", "Yeşilsırt", "Yurtbekler"
     ],
     allVillagesCount: 20
   },
@@ -118,12 +120,14 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     slug: "marmaraereglisi",
     province: "Tekirdağ",
     popularVillages: [
-      "Yeniçiftlik", "Sultanköy", "Çeşmeli", "Türkmenli", "Yakupçelebi", "Dereağzı"
+      "Yeniçiftlik", "Sultanköy", "Çeşmeli", "Türkmenli", "Yakupçelebi", "Dereağzı", "Kamaradere"
     ],
     allVillagesCount: 10
   },
 
-  // --- KIRKLARELİ İLÇELERİ ---
+  // ==========================================
+  // 2. KIRKLARELİ (8 RESMİ İLÇE)
+  // ==========================================
   {
     name: "Kırklareli Merkez",
     slug: "kirklareli-merkez",
@@ -142,10 +146,9 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     slug: "luleburgaz",
     province: "Kırklareli",
     popularVillages: [
-      "Ahmetbey", "Büyükkarıştıran", "Evrensekiz", "Akçaköy", "Alacaoğlu", "Ayvalı",
-      "Celaliye", "Ceylanköy", "Çengelli", "Çiftlikköy", "Davutlu", "Düğüncübaşı",
-      "Emirali", "Hamitabat", "Karaağaç", "Kırıkköy", "Ovacık", "Sakızköy",
-      "Sarıcaali", "Tatarköy", "Turgutbey", "Yenibedir"
+      "Büyükkarıştıran", "Ahmetbey", "Evrensekiz", "Hamitabat", "Sakızköy", "Kırıkköy",
+      "Akçaköy", "Alacaoğlu", "Ayvalı", "Celaliye", "Ceylanköy", "Çengelli", "Çiftlikköy",
+      "Davutlu", "Düğüncübaşı", "Emirali", "Karaağaç", "Ovacık", "Sarıcaali", "Tatarköy", "Turgutbey", "Yenibedir"
     ],
     allVillagesCount: 36
   },
@@ -209,15 +212,67 @@ export const trakyaDistrictsData: DistrictInfo[] = [
       "Karasakallı", "Malkoçlar", "Tatlıpınar", "Terzidere", "Topçular", "Yukarıkanara"
     ],
     allVillagesCount: 16
+  },
+
+  // ========================================================
+  // 3. ÇANAKKALE (TRAKYA / GELİBOLU YARIMADASI RESMİ İLÇELERİ)
+  // ========================================================
+  {
+    name: "Gelibolu",
+    slug: "gelibolu",
+    province: "Çanakkale",
+    popularVillages: [
+      "Bolayır", "Evreşe", "Kavakköy", "Güneyli", "Ilgardere", "Karainebeyli",
+      "Ocaklı", "Sütlüce", "Yeniköy", "Bayırköy", "Cevizli", "Değirmendüzü", "Fındıklı", "Tayfur"
+    ],
+    allVillagesCount: 26
+  },
+  {
+    name: "Eceabat",
+    slug: "eceabat",
+    province: "Çanakkale",
+    popularVillages: [
+      "Alçıtepe", "Behramlı", "Bigali", "Büyükanafarta", "Kilitbahir",
+      "Küçükanafarta", "Seddülbahir", "Kumköy", "Yalova", "Yolağzı"
+    ],
+    allVillagesCount: 12
+  },
+
+  // ========================================================
+  // 4. İSTANBUL (TRAKYA / AVRUPA YAKASI BATI İLÇELERİ)
+  // ========================================================
+  {
+    name: "Silivri",
+    slug: "silivri",
+    province: "İstanbul",
+    popularVillages: [
+      "Selimpaşa", "Gümüşyaka", "Değirmenköy", "Çanta", "Ortaköy", "Kavaklı",
+      "Beyciler", "Büyükçavuşlu", "Fener", "Gazitepe", "Kadıköy", "Kurfallı", "Sayalar", "Seymen"
+    ],
+    allVillagesCount: 35
+  },
+  {
+    name: "Çatalca",
+    slug: "catalca",
+    province: "İstanbul",
+    popularVillages: [
+      "Binkılıç", "Karacaköy", "Çakıl", "Muratbey", "Ormanlı", "Yalıköy",
+      "Çiftlikköy", "Dağyenice", "Ferhatpaşa", "Gökçeali", "İzzettin", "Kestanelik", "Oklalı", "Subaşı"
+    ],
+    allVillagesCount: 39
   }
 ];
 
+// ========================================================
+// 5. EDİRNE (9 RESMİ İLÇE - ÖZEL KARDEŞ SİTE YÖNLENDİRMESİ)
+// ========================================================
 export const edirneRedirectInfo = {
   provinceName: "Edirne",
   siteUrl: "https://edirnemezarliktemizleme.site",
-  description: "Edirne Merkez, Keşan, Uzunköprü, Havsa, İpsala, Meriç, Lalapaşa, Süloğlu ve Enez bölgelerindeki tüm mezarlık hizmetlerimiz için Edirne'ye özel sitemiz yayındadır.",
+  description: "Edirne Merkez ve tüm 8 ilçesindeki (Keşan, Uzunköprü, Havsa, İpsala, Meriç, Lalapaşa, Süloğlu, Enez) 253 köy mezarlığı için özel kardeş sitemiz yayındadır.",
   districts: [
     "Edirne Merkez", "Keşan", "Uzunköprü", "Havsa", "İpsala",
     "Meriç", "Lalapaşa", "Süloğlu", "Enez"
-  ]
+  ],
+  totalVillages: 253
 };

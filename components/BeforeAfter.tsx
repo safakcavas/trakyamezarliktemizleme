@@ -65,7 +65,7 @@ const cases: CaseStudy[] = [
     afterNotes: [
       "Toprak 25 cm derine kadar bellenip gübreyle havalandırıldı",
       "Trakya iklimine dayanıklı taze canlı mevsim çiçekleri dikildi",
-      "Basınçlı özel su tankımızla tüm taş yüzeyler yıkandı",
+      "Basınçlı özel mobil yıkama ekipmanımızla tüm taş yüzeyler yıkandı",
       "Bol miktarda ilk can suyu verilerek bayrama hazırlandı",
     ],
   },

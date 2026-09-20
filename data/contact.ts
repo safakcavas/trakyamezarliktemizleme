@@ -8,7 +8,7 @@ export const contactConfig = {
   email: "bilgi@trakyamezarliktemizleme.site",
   location: "Tekirdağ, Kırklareli, Çorlu, Lüleburgaz / Tüm Trakya İlçe ve Köyleri",
   workingHours: "Haftanın 7 Günü: 08:00 - 20:00",
-  serviceNote: "Tekirdağ, Kırklareli, Çorlu, Lüleburgaz, Çerkezköy ve yüzlerce Trakya köyüne kendi araç ve su tankımızla yerinde hizmet veriyoruz. Edirne bölgesi için özel sitemiz mevcuttur.",
+  serviceNote: "Tekirdağ, Kırklareli, Çorlu, Lüleburgaz, Çerkezköy, Silivri, Çatalca, Gelibolu ve yüzlerce Trakya köyüne kendi araç ve profesyonel mobil ekipmanlarımızla yerinde hizmet veriyoruz. Edirne bölgesi için özel sitemiz mevcuttur.",
   getWhatsappUrl: (customMessage?: string) => {
     const defaultMsg = "Merhaba, trakyamezarliktemizleme.site üzerinden ulaşıyorum. Trakya bölgesindeki mezar bakım ve temizlik hizmetiniz hakkında bilgi ve fiyat teklifi almak istiyorum.";
     const text = encodeURIComponent(customMessage || defaultMsg);

@@ -94,10 +94,10 @@ export default function Footer() {
             <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">
               Hizmet Verilen İlçeler
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
               <div>
                 <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
-                  Tekirdağ
+                  Tekirdağ (11 İlçe)
                 </span>
                 <div className="grid grid-cols-2 gap-1 text-xs text-slate-400">
                   {tekirdagDistricts.map((d) => (
@@ -115,7 +115,7 @@ export default function Footer() {
 
               <div className="pt-2 border-t border-slate-800">
                 <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
-                  Kırklareli
+                  Kırklareli (8 İlçe)
                 </span>
                 <div className="grid grid-cols-2 gap-1 text-xs text-slate-400">
                   {kirklareliDistricts.map((d) => (
@@ -128,6 +128,30 @@ export default function Footer() {
                       <span className="truncate">{d.name.replace(" Merkez", "")}</span>
                     </a>
                   ))}
+                </div>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800">
+                <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
+                  Çanakkale & İstanbul (Trakya)
+                </span>
+                <div className="grid grid-cols-2 gap-1 text-xs text-slate-400">
+                  <a href="#bolgeler" className="hover:text-emerald-400 transition flex items-center gap-1">
+                    <span className="text-emerald-600 font-bold">•</span>
+                    <span>Gelibolu</span>
+                  </a>
+                  <a href="#bolgeler" className="hover:text-emerald-400 transition flex items-center gap-1">
+                    <span className="text-emerald-600 font-bold">•</span>
+                    <span>Eceabat</span>
+                  </a>
+                  <a href="#bolgeler" className="hover:text-emerald-400 transition flex items-center gap-1">
+                    <span className="text-emerald-600 font-bold">•</span>
+                    <span>Silivri</span>
+                  </a>
+                  <a href="#bolgeler" className="hover:text-emerald-400 transition flex items-center gap-1">
+                    <span className="text-emerald-600 font-bold">•</span>
+                    <span>Çatalca</span>
+                  </a>
                 </div>
               </div>
             </div>

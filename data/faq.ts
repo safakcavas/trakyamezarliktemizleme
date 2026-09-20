@@ -17,8 +17,8 @@ export const faqData: FaqItem[] = [
     answer: "Tüm işlemlerimizde şeffaflık esastır. İşe başlamadan önce mezarın ilk halini fotoğraflayıp videoya alıyoruz. Bakım, temizlik, taş boyama ve çiçeklendirme tamamlandıktan sonra ise detaylı 'Sonrası' fotoğraf ve videolarını WhatsApp üzerinden anında size iletiyoruz."
   },
   {
-    question: "Köy mezarlıklarında su veya elektrik yoksa nasıl temizlik yapıyorsunuz?",
-    answer: "Hizmet araçlarımızda kendi su tankımız, basınçlı yıkama makinelerimiz ve jeneratörümüz mevcuttur. Kabir dağ başında veya su imkanı bulunmayan en ücra köy mezarlığında olsa dahi kendi imkanlarımızla eksiksiz hizmet sunuyoruz."
+    question: "Köy mezarlıklarında su veya altyapı imkanı yoksa nasıl temizlik yapıyorsunuz?",
+    answer: "Hizmet araçlarımızda profesyonel mobil yıkama ve temizlik ekipmanlarımız eksiksiz mevcuttur. Kabir dağ başında veya en ücra köy mezarlığında olsa dahi hiçbir altyapıya ihtiyaç duymadan eksiksiz ve titiz hizmet sunuyoruz."
   },
   {
     question: "Mermer temizliğinde kullanılan malzemeler mezar taşına zarar verir mi?",

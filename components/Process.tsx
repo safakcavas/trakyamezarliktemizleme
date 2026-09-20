@@ -26,7 +26,7 @@ export default function Process() {
       step: "03",
       icon: Sparkles,
       title: "İtinalı Bakım ve Temizlik",
-      desc: "Kendi araç, su tankı ve ekipmanımızla köye varıyor; otları ayıklıyor, mermeri beyazlatıyor ve çiçekleri dikiyoruz.",
+      desc: "Kendi araç ve profesyonel mobil ekipmanlarımızla köye varıyor; otları ayıklıyor, mermeri beyazlatıyor ve çiçekleri dikiyoruz.",
     },
     {
       step: "04",

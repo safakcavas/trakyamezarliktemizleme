@@ -14,12 +14,12 @@ import {
 } from "lucide-react";
 
 export default function Regions() {
-  const [activeProvince, setActiveProvince] = useState<"Tekirdağ" | "Kırklareli" | "Edirne">("Tekirdağ");
+  const [activeProvince, setActiveProvince] = useState<"Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul">("Tekirdağ");
   const districtsInProvince = trakyaDistrictsData.filter((d) => d.province === activeProvince);
   const [selectedDistrict, setSelectedDistrict] = useState(districtsInProvince[0] || trakyaDistrictsData[0]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleProvinceTab = (prov: "Tekirdağ" | "Kırklareli" | "Edirne") => {
+  const handleProvinceTab = (prov: "Tekirdağ" | "Kırklareli" | "Edirne" | "Çanakkale" | "İstanbul") => {
     setActiveProvince(prov);
     if (prov !== "Edirne") {
       const first = trakyaDistrictsData.find((d) => d.province === prov);
@@ -56,9 +56,8 @@ export default function Regions() {
             Tüm Trakya İlçe ve Köylerine Hizmet Götürüyoruz
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            Mezarınız Tekirdağ veya Kırklareli’nin en uç köyünde dahi olsa, kendi
-            aracımız, su tankımız, jeneratörümüz ve temizlik ekipmanımızla bizzat
-            yerine ulaşıyoruz.
+            Mezarınız Trakya’nın en uç köyünde dahi olsa, kendi aracımız ve
+            profesyonel temizlik ekipmanlarımızla bizzat yerine ulaşıyoruz.
           </p>
         </div>
 
@@ -126,34 +125,58 @@ export default function Regions() {
         </div>
 
         {/* Top Province Selection Tabs */}
-        <div className="flex justify-center gap-2 sm:gap-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
           <button
             onClick={() => handleProvinceTab("Tekirdağ")}
-            className={`px-5 py-3 rounded-2xl font-extrabold text-sm sm:text-base transition duration-200 flex items-center gap-2 cursor-pointer ${
+            className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
               activeProvince === "Tekirdağ"
                 ? "bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 scale-105"
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200"
             }`}
           >
             <Building2 className="w-4 h-4" />
-            <span>Tekirdağ İlçeleri</span>
+            <span>Tekirdağ (11 İlçe)</span>
           </button>
 
           <button
             onClick={() => handleProvinceTab("Kırklareli")}
-            className={`px-5 py-3 rounded-2xl font-extrabold text-sm sm:text-base transition duration-200 flex items-center gap-2 cursor-pointer ${
+            className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
               activeProvince === "Kırklareli"
                 ? "bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 scale-105"
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200"
             }`}
           >
             <Building2 className="w-4 h-4" />
-            <span>Kırklareli İlçeleri</span>
+            <span>Kırklareli (8 İlçe)</span>
+          </button>
+
+          <button
+            onClick={() => handleProvinceTab("Çanakkale")}
+            className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
+              activeProvince === "Çanakkale"
+                ? "bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 scale-105"
+                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+            }`}
+          >
+            <Building2 className="w-4 h-4" />
+            <span>Çanakkale (Gelibolu & Eceabat)</span>
+          </button>
+
+          <button
+            onClick={() => handleProvinceTab("İstanbul")}
+            className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
+              activeProvince === "İstanbul"
+                ? "bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 scale-105"
+                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+            }`}
+          >
+            <Building2 className="w-4 h-4" />
+            <span>İstanbul (Silivri & Çatalca)</span>
           </button>
 
           <button
             onClick={() => handleProvinceTab("Edirne")}
-            className={`px-5 py-3 rounded-2xl font-extrabold text-sm sm:text-base transition duration-200 flex items-center gap-2 cursor-pointer ${
+            className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
               activeProvince === "Edirne"
                 ? "bg-amber-600 text-white shadow-lg shadow-amber-900/20 scale-105"
                 : "bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100"
@@ -276,7 +299,7 @@ export default function Regions() {
 
               <div className="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
                 <span>* Listede yer almayan tüm mezarlık ve mevkiler için de hizmet verilmektedir.</span>
-                <span className="font-semibold text-emerald-800">Kendi Su Tankımız & Jeneratörümüz Mevcuttur</span>
+                <span className="font-semibold text-emerald-800">Yerinde Profesyonel Ekipman & Mobil Hizmet</span>
               </div>
             </div>
           </>

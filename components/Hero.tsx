@@ -91,7 +91,7 @@ export default function Hero() {
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                <span className="text-xs text-slate-300">Kendi Su Tankı & Jeneratör</span>
+                <span className="text-xs text-slate-300">Yerinde Profesyonel Ekipman</span>
               </div>
               <div className="flex items-start gap-2">
                 <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
