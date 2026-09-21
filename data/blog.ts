@@ -21,7 +21,9 @@ export interface BlogPost {
   };
 }
 
-export const blogPosts: BlogPost[] = [
+import { districtBlogPosts } from "./districtBlogs";
+
+export const generalBlogPosts: BlogPost[] = [
   {
     slug: "trakya-mezar-bakimi-nasil-yapilir",
     title: "Trakya'da Mezar Bakımı Nasıl Yapılır? Mermer Temizliği ve Toprak Bakım Rehberi",
@@ -327,10 +329,20 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
+export const blogPosts: BlogPost[] = [...generalBlogPosts, ...districtBlogPosts];
+
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);
 }
 
 export function getAllBlogSlugs(): string[] {
   return blogPosts.map((p) => p.slug);
+}
+
+export function getDistrictBlogPosts(): BlogPost[] {
+  return districtBlogPosts;
+}
+
+export function getGeneralBlogPosts(): BlogPost[] {
+  return generalBlogPosts;
 }

@@ -1,6 +1,7 @@
 export interface DistrictInfo {
   name: string;
   slug: string;
+  blogSlug: string;
   province: "Tekirdağ" | "Kırklareli" | "Edirne";
   isCenter?: boolean;
   popularVillages: string[];
@@ -9,11 +10,12 @@ export interface DistrictInfo {
 
 export const trakyaDistrictsData: DistrictInfo[] = [
   // ==============================================================
-  // 1. TEKİRDAĞ (9 RESMİ İLÇE - Kapaklı ve Saray hariç)
+  // 1. TEKİRDAĞ (11 RESMİ İLÇE)
   // ==============================================================
   {
     name: "Süleymanpaşa (Tekirdağ Merkez)",
     slug: "suleymanpasa",
+    blogSlug: "suleymanpasa-mezar-bakimi-ve-kabir-temizligi",
     province: "Tekirdağ",
     isCenter: true,
     popularVillages: [
@@ -26,6 +28,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Çorlu",
     slug: "corlu",
+    blogSlug: "corlu-mezar-bakimi-ve-kabir-temizligi",
     province: "Tekirdağ",
     popularVillages: [
       "Önerler", "Seymen", "Yenice", "Şahpaz", "Türkgücü", "Dereoğlu",
@@ -36,6 +39,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Çerkezköy",
     slug: "cerkezkoy",
+    blogSlug: "cerkezkoy-mezar-bakimi-ve-kabir-temizligi",
     province: "Tekirdağ",
     popularVillages: [
       "Kızılpınar", "Veliköy", "Bağlık", "Fevzipaşa", "Gazi Mustafa Kemal",
@@ -44,8 +48,20 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     allVillagesCount: 12
   },
   {
+    name: "Kapaklı",
+    slug: "kapakli",
+    blogSlug: "kapakli-mezar-bakimi-ve-kabir-temizleme",
+    province: "Tekirdağ",
+    popularVillages: [
+      "Karaağaç", "Kazakgölü", "Yanıkağıl", "Bahçeağıl", "Pınarca", "Karlı",
+      "Uzunhacı", "İsmetpaşa", "Cumhuriyet", "Atatürk", "Bahçelievler"
+    ],
+    allVillagesCount: 14
+  },
+  {
     name: "Ergene",
     slug: "ergene",
+    blogSlug: "ergene-mezar-bakimi-ve-kabir-temizligi",
     province: "Tekirdağ",
     popularVillages: [
       "Velimeşe", "Misinli", "Ulaş", "Vakıflar", "Ahimehmet", "Bakırca",
@@ -56,6 +72,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Malkara",
     slug: "malkara",
+    blogSlug: "malkara-mezar-bakimi-ve-koy-kabir-temizligi",
     province: "Tekirdağ",
     popularVillages: [
       "Kozyörük", "Balabancık", "Sağlamtaş", "Ballı", "Batkın", "Camiatik", "Çavuşköy",
@@ -65,8 +82,20 @@ export const trakyaDistrictsData: DistrictInfo[] = [
     allVillagesCount: 77
   },
   {
+    name: "Saray",
+    slug: "saray",
+    blogSlug: "saray-mezar-bakimi-ve-kabir-temizligi",
+    province: "Tekirdağ",
+    popularVillages: [
+      "Büyükyoncalı", "Küçükyoncalı", "Beyazköy", "Çukuryurt", "Edirköy", "Göçerler",
+      "Güngörmez", "Kadıköy", "Karabürçek", "Kavacık", "Kurtdere", "Sefaalan", "Sinanlı", "Sofular", "Yuvalı"
+    ],
+    allVillagesCount: 22
+  },
+  {
     name: "Hayrabolu",
     slug: "hayrabolu",
+    blogSlug: "hayrabolu-mezar-bakimi-ve-kabir-temizleme",
     province: "Tekirdağ",
     popularVillages: [
       "Çerkezmüsellim", "Şalgamlı", "Avluobası", "Aydınlar", "Büyükkarakarlı", "Canhıdır",
@@ -78,6 +107,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Şarköy",
     slug: "sarkoy",
+    blogSlug: "sarkoy-mezar-bakimi-ve-mermer-temizligi",
     province: "Tekirdağ",
     popularVillages: [
       "Mürefte", "Hoşköy", "Eriklice", "Uçmakdere", "Gaziköy", "Tepeköy",
@@ -88,6 +118,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Muratlı",
     slug: "muratli",
+    blogSlug: "muratli-mezar-bakimi-ve-kabir-temizleme",
     province: "Tekirdağ",
     popularVillages: [
       "Aşağısevindikli", "Yukarısevindikli", "Aydınköy", "Balabanlı", "Ballıhoca", "Hanoğlu",
@@ -98,6 +129,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Marmaraereğlisi",
     slug: "marmaraereglisi",
+    blogSlug: "marmaraereglisi-mezar-bakimi-ve-temizligi",
     province: "Tekirdağ",
     popularVillages: [
       "Yeniçiftlik", "Sultanköy", "Çeşmeli", "Türkmenli", "Yakupçelebi", "Dereağzı", "Kamaradere"
@@ -111,6 +143,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Kırklareli Merkez",
     slug: "kirklareli-merkez",
+    blogSlug: "kirklareli-merkez-mezar-bakimi-ve-temizligi",
     province: "Kırklareli",
     isCenter: true,
     popularVillages: [
@@ -124,6 +157,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Lüleburgaz",
     slug: "luleburgaz",
+    blogSlug: "luleburgaz-mezar-bakimi-ve-kabir-temizleme",
     province: "Kırklareli",
     popularVillages: [
       "Büyükkarıştıran", "Ahmetbey", "Evrensekiz", "Hamitabat", "Sakızköy", "Kırıkköy",
@@ -135,6 +169,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Babaeski",
     slug: "babaeski",
+    blogSlug: "babaeski-mezar-bakimi-ve-kabir-temizligi",
     province: "Kırklareli",
     popularVillages: [
       "Alpullu", "Büyükmandıra", "Karahalil", "Ağayeri", "Çengerli", "Çavuşköy",
@@ -146,6 +181,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Vize",
     slug: "vize",
+    blogSlug: "vize-mezar-bakimi-ve-koy-kabir-temizleme",
     province: "Kırklareli",
     popularVillages: [
       "Kıyıköy", "Çakıllı", "Akpınar", "Aksicim", "Balkaya", "Çüvenli", "Değirmencik",
@@ -157,6 +193,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Pınarhisar",
     slug: "pinarhisar",
+    blogSlug: "pinarhisar-mezar-bakimi-ve-kabir-temizleme",
     province: "Kırklareli",
     popularVillages: [
       "Kaynarca", "Akören", "Ataköy", "Cevizköy", "Çayırdere", "Erenler",
@@ -167,6 +204,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Demirköy",
     slug: "demirkoy",
+    blogSlug: "demirkoy-mezar-bakimi-ve-igneada-kabir-temizleme",
     province: "Kırklareli",
     popularVillages: [
       "İğneada", "Avcılar", "Balaban", "Beğendik", "Boztaş", "Gökyaka",
@@ -177,6 +215,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Pehlivanköy",
     slug: "pehlivankoy",
+    blogSlug: "pehlivankoy-mezar-bakimi-ve-kabir-temizleme",
     province: "Kırklareli",
     popularVillages: [
       "Doğanca", "Hıdırca", "İmampazarı", "Kumköy", "Kuştepe", "Yeşilova"
@@ -186,6 +225,7 @@ export const trakyaDistrictsData: DistrictInfo[] = [
   {
     name: "Kofçaz",
     slug: "kofcaz",
+    blogSlug: "kofcaz-mezar-bakimi-ve-koy-kabir-temizleme",
     province: "Kırklareli",
     popularVillages: [
       "Ahmetler", "Beyci", "Dayıncık", "Devletliağaç", "Elmacık", "Gözebaşı",

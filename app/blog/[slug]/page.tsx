@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const postUrl = `https://trakyamezarliktemizleme.site/blog/${post.slug}`;
+  const postUrl = `https://www.trakyamezarliktemizleme.site/blog/${post.slug}`;
 
   return {
     title: `${post.title} | Trakya Mezar Bakım`,
@@ -82,33 +82,36 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  // Related posts: prefer same category or fallback to others
+  const sameCategory = blogPosts.filter((p) => p.slug !== post.slug && p.category === post.category);
+  const otherCategory = blogPosts.filter((p) => p.slug !== post.slug && p.category !== post.category);
+  const relatedPosts = [...sameCategory, ...otherCategory].slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `https://trakyamezarliktemizleme.site${post.image}`,
+    image: `https://www.trakyamezarliktemizleme.site${post.image}`,
     datePublished: post.date,
     dateModified: post.date,
     author: {
       "@type": "Organization",
       name: post.author,
-      url: "https://trakyamezarliktemizleme.site",
+      url: "https://www.trakyamezarliktemizleme.site",
     },
     publisher: {
       "@type": "Organization",
       name: "Trakya Mezar Bakım Hizmetleri",
-      url: "https://trakyamezarliktemizleme.site",
+      url: "https://www.trakyamezarliktemizleme.site",
       logo: {
         "@type": "ImageObject",
-        url: "https://trakyamezarliktemizleme.site/icon.svg",
+        url: "https://www.trakyamezarliktemizleme.site/icon.svg",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://trakyamezarliktemizleme.site/blog/${post.slug}`,
+      "@id": `https://www.trakyamezarliktemizleme.site/blog/${post.slug}`,
     },
   };
 
@@ -120,19 +123,19 @@ export default async function BlogPostPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Ana Sayfa",
-        item: "https://trakyamezarliktemizleme.site",
+        item: "https://www.trakyamezarliktemizleme.site",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://trakyamezarliktemizleme.site/blog",
+        item: "https://www.trakyamezarliktemizleme.site/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://trakyamezarliktemizleme.site/blog/${post.slug}`,
+        item: `https://www.trakyamezarliktemizleme.site/blog/${post.slug}`,
       },
     ],
   };

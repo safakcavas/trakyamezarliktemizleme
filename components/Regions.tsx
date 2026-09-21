@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { trakyaDistrictsData, edirneRedirectInfo } from "@/data/regions";
 import { contactConfig } from "@/data/contact";
 import {
@@ -11,6 +12,8 @@ import {
   Navigation,
   ExternalLink,
   Building2,
+  BookOpen,
+  ArrowRight,
 } from "lucide-react";
 
 export default function Regions() {
@@ -226,6 +229,17 @@ export default function Regions() {
                 <span>WhatsApp ile Buradan Yaz</span>
               </a>
             </div>
+
+            <div className="pt-2">
+              <Link
+                href="/blog/edirne-mezar-bakimi-ve-koy-kabir-temizligi"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-amber-800 hover:text-amber-950 font-bold underline transition"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>Edirne ve Köyleri Mezar Bakım & Temizlik Rehberini Oku</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         ) : (
           /* View for Tekirdağ and Kırklareli */
@@ -264,15 +278,24 @@ export default function Regions() {
                     {selectedDistrict.name} bölgesinde yaklaşık {selectedDistrict.allVillagesCount} köy ve mahalle mezarlığına aktif mobil araçlarımızla hizmet sunulmaktadır.
                   </p>
                 </div>
-                <a
-                  href={contactConfig.getWhatsappUrl(`Merhaba, ${selectedDistrict.province} ${selectedDistrict.name} bölgesinde mezar bakım ve temizlik hizmeti almak istiyorum.`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-semibold transition"
-                >
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>{selectedDistrict.name} İçin Fiyat Al</span>
-                </a>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    href={`/blog/${selectedDistrict.blogSlug}`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-emerald-600 text-emerald-800 hover:bg-emerald-50 text-xs sm:text-sm font-bold transition shadow-sm"
+                  >
+                    <BookOpen className="w-4 h-4 text-emerald-700" />
+                    <span>İlçe Rehberi</span>
+                  </Link>
+                  <a
+                    href={contactConfig.getWhatsappUrl(`Merhaba, ${selectedDistrict.province} ${selectedDistrict.name} bölgesinde mezar bakım ve temizlik hizmeti almak istiyorum.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-semibold transition"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <span>Fiyat Teklifi Al</span>
+                  </a>
+                </div>
               </div>
 
               {/* Villages Grid */}
@@ -288,9 +311,15 @@ export default function Regions() {
                 ))}
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+              <div className="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
                 <span>* Listede yer almayan tüm mezarlık ve mevkiler için de hizmet verilmektedir.</span>
-                <span className="font-semibold text-emerald-800">Yerinde Profesyonel Ekipman & Mobil Hizmet</span>
+                <Link
+                  href={`/blog/${selectedDistrict.blogSlug}`}
+                  className="inline-flex items-center gap-1 text-emerald-800 hover:text-emerald-950 font-bold transition group"
+                >
+                  <span>{selectedDistrict.name} Mezar Temizliği & Köy Rehberini Okuyun</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
               </div>
             </div>
           </>

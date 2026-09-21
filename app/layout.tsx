@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Trakya Mezar Bakım Hizmetleri" }],
   creator: "Trakya Mezar Bakım Hizmetleri",
-  metadataBase: new URL("https://trakyamezarliktemizleme.site"),
+  metadataBase: new URL("https://www.trakyamezarliktemizleme.site"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://trakyamezarliktemizleme.site",
+    url: "https://www.trakyamezarliktemizleme.site",
     title: "Trakya Mezar Temizlik ve Bakım Hizmeti | Tüm Köylere Hizmet",
     description:
       "Tekirdağ, Kırklareli, Çorlu, Lüleburgaz ve tüm Trakya köylerinde sevdiklerinizin kabirleri emin ellerde. Yabani ot temizliği, mermer beyazlatma, çiçek dikimi ve taş boyama. WhatsApp ile videolu teslimat.",
@@ -69,21 +70,32 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Trakya Mezar Bakım ve Temizlik Hizmetleri",
-    url: "https://trakyamezarliktemizleme.site",
+    url: "https://www.trakyamezarliktemizleme.site",
     description:
       "Tekirdağ, Kırklareli ve tüm Trakya köylerinde kabir bakımı, mezar taşı temizliği, mermer beyazlatma, çiçek ekimi ve periyodik bakım hizmetleri.",
     telephone: "+905302301522",
     areaServed: [
       { "@type": "City", name: "Tekirdağ" },
       { "@type": "City", name: "Kırklareli" },
-      { "@type": "AdministrativeArea", name: "Çorlu" },
-      { "@type": "AdministrativeArea", name: "Lüleburgaz" },
-      { "@type": "AdministrativeArea", name: "Çerkezköy" },
       { "@type": "AdministrativeArea", name: "Süleymanpaşa" },
-      { "@type": "AdministrativeArea", name: "Malkara" },
-      { "@type": "AdministrativeArea", name: "Babaeski" },
+      { "@type": "AdministrativeArea", name: "Çorlu" },
+      { "@type": "AdministrativeArea", name: "Çerkezköy" },
+      { "@type": "AdministrativeArea", name: "Kapaklı" },
       { "@type": "AdministrativeArea", name: "Ergene" },
+      { "@type": "AdministrativeArea", name: "Malkara" },
+      { "@type": "AdministrativeArea", name: "Saray" },
+      { "@type": "AdministrativeArea", name: "Hayrabolu" },
+      { "@type": "AdministrativeArea", name: "Şarköy" },
+      { "@type": "AdministrativeArea", name: "Muratlı" },
+      { "@type": "AdministrativeArea", name: "Marmaraereğlisi" },
+      { "@type": "AdministrativeArea", name: "Lüleburgaz" },
+      { "@type": "AdministrativeArea", name: "Kırklareli Merkez" },
+      { "@type": "AdministrativeArea", name: "Babaeski" },
       { "@type": "AdministrativeArea", name: "Vize" },
+      { "@type": "AdministrativeArea", name: "Pınarhisar" },
+      { "@type": "AdministrativeArea", name: "Demirköy" },
+      { "@type": "AdministrativeArea", name: "Pehlivanköy" },
+      { "@type": "AdministrativeArea", name: "Kofçaz" },
     ],
     priceRange: "₺₺",
     openingHoursSpecification: [
@@ -113,6 +125,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased bg-slate-50 text-slate-800 selection:bg-emerald-700 selection:text-white">
+        <GoogleAnalytics gaId="G-HZZPHDNVKP" />
         {children}
       </body>
     </html>

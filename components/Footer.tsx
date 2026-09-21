@@ -32,8 +32,8 @@ export default function Footer() {
             </div>
 
             {/* Edirne Site Highlight */}
-            <div className="mt-4 p-3 rounded-xl bg-emerald-900/40 border border-emerald-800/80 text-xs">
-              <span className="block text-emerald-300 font-bold mb-1">Edirne Mezarlık Bakımı</span>
+            <div className="mt-4 p-3 rounded-xl bg-emerald-900/40 border border-emerald-800/80 text-xs space-y-1.5">
+              <span className="block text-emerald-300 font-bold">Edirne Mezarlık Bakımı</span>
               <a
                 href={contactConfig.edirneSiteUrl}
                 target="_blank"
@@ -44,6 +44,12 @@ export default function Footer() {
                 <span>edirnemezarliktemizleme.site</span>
                 <ExternalLink className="w-3 h-3" aria-hidden="true" />
               </a>
+              <Link
+                href="/blog/edirne-mezar-bakimi-ve-koy-kabir-temizligi"
+                className="text-emerald-400 hover:text-emerald-200 block text-[11px] font-semibold"
+              >
+                → Edirne & 8 İlçe Mezar Rehberi
+              </Link>
             </div>
           </div>
 
@@ -114,13 +120,14 @@ export default function Footer() {
             <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
               <div>
                 <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
-                  Tekirdağ (9 İlçe)
+                  Tekirdağ ({tekirdagDistricts.length} İlçe)
                 </span>
                 <div className="grid grid-cols-2 gap-1 text-xs text-slate-400">
                   {tekirdagDistricts.map((d) => (
                     <Link
                       key={d.slug}
-                      href="/#bolgeler"
+                      href={`/blog/${d.blogSlug}`}
+                      title={`${d.name} Mezar Bakımı ve Temizliği Rehberi`}
                       className="hover:text-emerald-400 transition flex items-center gap-1"
                     >
                       <span className="text-emerald-600 font-bold">•</span>
@@ -132,13 +139,14 @@ export default function Footer() {
 
               <div className="pt-2 border-t border-slate-800">
                 <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
-                  Kırklareli (8 İlçe)
+                  Kırklareli ({kirklareliDistricts.length} İlçe)
                 </span>
                 <div className="grid grid-cols-2 gap-1 text-xs text-slate-400">
                   {kirklareliDistricts.map((d) => (
                     <Link
                       key={d.slug}
-                      href="/#bolgeler"
+                      href={`/blog/${d.blogSlug}`}
+                      title={`${d.name} Mezar Bakımı ve Temizliği Rehberi`}
                       className="hover:text-emerald-400 transition flex items-center gap-1"
                     >
                       <span className="text-emerald-600 font-bold">•</span>

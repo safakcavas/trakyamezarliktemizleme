@@ -94,6 +94,68 @@ export default function BlogSection() {
             </article>
           ))}
         </div>
+
+        {/* Curated District Guides Bar */}
+        <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider block">
+              19 Trakya İlçesi İçin Özel Rehberler
+            </span>
+            <p className="text-xs text-slate-500">
+              Kendi köy ve ilçenizin mezarlık şartlarına özel hazırladığımız bakım kılavuzlarını inceleyin:
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href="/blog/corlu-mezar-bakimi-ve-kabir-temizligi"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-slate-700 transition"
+            >
+              Çorlu
+            </Link>
+            <Link
+              href="/blog/luleburgaz-mezar-bakimi-ve-kabir-temizleme"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-slate-700 transition"
+            >
+              Lüleburgaz
+            </Link>
+            <Link
+              href="/blog/suleymanpasa-mezar-bakimi-ve-kabir-temizligi"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-slate-700 transition"
+            >
+              Süleymanpaşa
+            </Link>
+            <Link
+              href="/blog/cerkezkoy-mezar-bakimi-ve-kabir-temizligi"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-slate-700 transition"
+            >
+              Çerkezköy
+            </Link>
+            <Link
+              href="/blog/malkara-mezar-bakimi-ve-koy-kabir-temizligi"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-slate-700 transition"
+            >
+              Malkara
+            </Link>
+            <Link
+              href="/blog/babaeski-mezar-bakimi-ve-kabir-temizligi"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-slate-700 transition"
+            >
+              Babaeski
+            </Link>
+            <Link
+              href="/blog/sarkoy-mezar-bakimi-ve-mermer-temizligi"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-slate-700 transition"
+            >
+              Şarköy
+            </Link>
+            <Link
+              href="/blog"
+              className="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition flex items-center gap-1"
+            >
+              <span>Tüm 19 İlçe ↗</span>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
