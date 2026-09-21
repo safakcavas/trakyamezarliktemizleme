@@ -120,9 +120,9 @@ export default function Packages() {
                   </div>
 
                   {/* Feature Checklist */}
-                  <div className="space-y-3 pt-4 border-t border-slate-200/40 mb-8">
+                  <ul className="space-y-3 pt-4 border-t border-slate-200/40 mb-8" aria-label={`${pkg.name} paket özellikleri`}>
                     {pkg.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm">
+                      <li key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm">
                         <div
                           className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
                             pkg.isPopular
@@ -130,7 +130,7 @@ export default function Packages() {
                               : "bg-emerald-100 text-emerald-700"
                           }`}
                         >
-                          <Check className="w-3.5 h-3.5 font-bold" />
+                          <Check className="w-3.5 h-3.5 font-bold" aria-hidden="true" />
                         </div>
                         <span
                           className={
@@ -139,9 +139,9 @@ export default function Packages() {
                         >
                           {feat}
                         </span>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
 
                 {/* Card CTA */}
@@ -155,8 +155,9 @@ export default function Packages() {
                         ? "bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold"
                         : "bg-emerald-700 hover:bg-emerald-800 text-white"
                     }`}
+                    aria-label={`${pkg.name} paketi için WhatsApp'tan yazın`}
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageCircle className="w-4 h-4" aria-hidden="true" />
                     <span>{pkg.ctaText} & WhatsApp&apos;tan Yaz</span>
                   </a>
                 </div>

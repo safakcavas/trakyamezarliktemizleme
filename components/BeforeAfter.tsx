@@ -132,10 +132,14 @@ export default function BeforeAfter() {
         </div>
 
         {/* Tab Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-10" role="tablist" aria-label="Örnek vaka çalışmaları">
           {cases.map((c, index) => (
             <button
               key={c.id}
+              role="tab"
+              aria-selected={activeCase === index}
+              aria-controls={`case-panel-${c.id}`}
+              id={`case-tab-${c.id}`}
               onClick={() => setActiveCase(index)}
               className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
                 activeCase === index
@@ -152,7 +156,12 @@ export default function BeforeAfter() {
         {(() => {
           const current = cases[activeCase];
           return (
-            <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-slate-800">
+            <div
+              id={`case-panel-${current.id}`}
+              role="tabpanel"
+              aria-labelledby={`case-tab-${current.id}`}
+              className="bg-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-slate-800"
+            >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800 mb-8">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">

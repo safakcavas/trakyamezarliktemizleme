@@ -34,7 +34,7 @@ export default function Testimonials() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-            <Star className="w-3.5 h-3.5 text-emerald-700" />
+            <Star className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
             <span>Müşteri Memnuniyeti</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -54,12 +54,16 @@ export default function Testimonials() {
               className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition"
             >
               <div>
-                <div className="flex items-center gap-1 mb-4 text-amber-500">
+                <div
+                  className="flex items-center gap-1 mb-4 text-amber-500"
+                  role="img"
+                  aria-label={`${rev.rating} üzerinden 5 yıldız`}
+                >
                   {[...Array(rev.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" aria-hidden="true" />
                   ))}
                 </div>
-                <Quote className="w-6 h-6 text-slate-300 mb-2" />
+                <Quote className="w-6 h-6 text-slate-300 mb-2" aria-hidden="true" />
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
                   &ldquo;{rev.text}&rdquo;
                 </p>

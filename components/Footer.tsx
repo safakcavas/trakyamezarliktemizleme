@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-700 flex items-center justify-center text-white">
-                <Sparkles className="w-5 h-5 text-emerald-200" />
+                <Sparkles className="w-5 h-5 text-emerald-200" aria-hidden="true" />
               </div>
               <span className="text-xl font-black text-white">
                 Trakya <span className="text-emerald-500">Mezar Bakım</span>
@@ -27,7 +27,7 @@ export default function Footer() {
               temizliyor, çiçeklendiriyor ve videolu raporluyoruz.
             </p>
             <div className="pt-2 text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5" />
+              <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Tekirdağ & Kırklareli Köylerine Yerinde Hizmet</span>
             </div>
 
@@ -38,19 +38,20 @@ export default function Footer() {
                 href={contactConfig.edirneSiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Edirne Mezar Bakımı Web Sitesi (Yeni sekmede açılır)"
                 className="text-white hover:text-emerald-300 underline font-semibold flex items-center gap-1"
               >
                 <span>edirnemezarliktemizleme.site</span>
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-3 h-3" aria-hidden="true" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">
+            <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">
               Hızlı Bağlantılar
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <Link href="/blog" className="text-emerald-400 font-semibold hover:text-emerald-300 transition flex items-center gap-1">
@@ -107,9 +108,9 @@ export default function Footer() {
 
           {/* Districts Covered */}
           <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">
+            <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">
               Hizmet Verilen İlçeler
-            </h4>
+            </h3>
             <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
               <div>
                 <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
@@ -151,17 +152,18 @@ export default function Footer() {
 
           {/* Direct Contacts */}
           <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">
+            <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">
               İletişim & Danışma
-            </h4>
+            </h3>
             <div className="space-y-3 text-xs">
               <a
                 href={contactConfig.getWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`WhatsApp Danışma: ${contactConfig.phone}`}
                 className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-600 transition"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
                 <span className="font-bold text-white">WhatsApp: {contactConfig.phone}</span>
               </a>
 
@@ -169,9 +171,10 @@ export default function Footer() {
                 href={contactConfig.getWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp Canlı Destek ile Mesaj Gönder"
                 className="flex items-center gap-2.5 p-3 rounded-xl bg-emerald-950/80 border border-emerald-800/80 text-emerald-200 hover:bg-emerald-900 transition"
               >
-                <MessageCircle className="w-4 h-4 fill-emerald-300 text-emerald-950 shrink-0" />
+                <MessageCircle className="w-4 h-4 fill-emerald-300 text-emerald-950 shrink-0" aria-hidden="true" />
                 <span className="font-bold">WhatsApp ile Mesaj Gönder</span>
               </a>
 
@@ -189,7 +192,7 @@ export default function Footer() {
           </p>
           <p className="flex items-center gap-1.5 text-slate-400">
             <span>Emanetinize saygıyla, tüm Trakya&apos;da</span>
-            <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />
+            <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" aria-hidden="true" />
           </p>
         </div>
       </div>

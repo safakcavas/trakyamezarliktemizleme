@@ -159,23 +159,24 @@ ${
 
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Step 1: Location & District */}
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <label className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold">
+            <fieldset className="space-y-4">
+              <legend className="text-sm font-bold text-slate-900 flex items-center justify-between w-full mb-4">
+                <span className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold" aria-hidden="true">
                     1
                   </span>
                   <span>Mezarın Bulunduğu İli ve İlçesi Seçin</span>
-                </label>
+                </span>
                 <span className="text-xs text-emerald-800 font-semibold hidden sm:inline">
                   Tüm Köylere Kendi Aracımızla Ulaşım
                 </span>
-              </div>
+              </legend>
 
               {/* Province Selector Tabs */}
-              <div className="grid grid-cols-3 gap-2 mb-4">
+              <div className="grid grid-cols-3 gap-2 mb-4" role="group" aria-label="İl Seçimi">
                 <button
                   type="button"
+                  aria-pressed={selectedProvince === "Tekirdağ"}
                   onClick={() => handleProvinceChange("Tekirdağ")}
                   className={`py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer ${
                     selectedProvince === "Tekirdağ"
@@ -183,12 +184,13 @@ ${
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                 >
-                  <MapPin className="w-3.5 h-3.5" />
+                  <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Tekirdağ</span>
                 </button>
 
                 <button
                   type="button"
+                  aria-pressed={selectedProvince === "Kırklareli"}
                   onClick={() => handleProvinceChange("Kırklareli")}
                   className={`py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer ${
                     selectedProvince === "Kırklareli"
@@ -196,12 +198,13 @@ ${
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                 >
-                  <MapPin className="w-3.5 h-3.5" />
+                  <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Kırklareli</span>
                 </button>
 
                 <button
                   type="button"
+                  aria-pressed={selectedProvince === "Edirne"}
                   onClick={() => handleProvinceChange("Edirne")}
                   className={`py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer ${
                     selectedProvince === "Edirne"
@@ -209,7 +212,7 @@ ${
                       : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100"
                   }`}
                 >
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Edirne (Özel Site)</span>
                 </button>
               </div>
@@ -218,7 +221,7 @@ ${
               {selectedProvince === "Edirne" ? (
                 <div className="mb-4 p-5 rounded-2xl bg-amber-50 border-2 border-amber-300 text-amber-950 space-y-3">
                   <div className="flex items-start gap-3">
-                    <AlertCircle className="w-6 h-6 text-amber-700 shrink-0 mt-0.5" />
+                    <AlertCircle className="w-6 h-6 text-amber-700 shrink-0 mt-0.5" aria-hidden="true" />
                     <div className="space-y-1 text-sm">
                       <p className="font-bold text-amber-900 text-base">
                         Edirne İçin Özel Web Sitemiz Yayındadır!
@@ -236,7 +239,7 @@ ${
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs sm:text-sm shadow transition"
                     >
                       <span>edirnemezarliktemizleme.site Adresine Git</span>
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-4 h-4" aria-hidden="true" />
                     </a>
                     <span className="text-xs text-amber-800">
                       Veya dilerseniz formu doldurarak Trakya merkez hattımızdan da Edirne için fiyat alabilirsiniz.
@@ -248,11 +251,13 @@ ${
               {/* District & Village inputs */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-500 mb-1">
+                  <label htmlFor="trakya-calc-district" className="block text-xs font-semibold text-slate-500 mb-1">
                     {selectedProvince} İlçesi
                   </label>
                   {selectedProvince === "Edirne" ? (
                     <select
+                      id="trakya-calc-district"
+                      name="calc-district"
                       value={selectedDistrict}
                       onChange={(e) => setSelectedDistrict(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
@@ -265,6 +270,8 @@ ${
                     </select>
                   ) : (
                     <select
+                      id="trakya-calc-district"
+                      name="calc-district"
                       value={selectedDistrict}
                       onChange={(e) => setSelectedDistrict(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
@@ -279,10 +286,12 @@ ${
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-500 mb-1">
+                  <label htmlFor="trakya-calc-village" className="block text-xs font-semibold text-slate-500 mb-1">
                     Köy, Mahalle veya Mezarlık Adı
                   </label>
                   <input
+                    id="trakya-calc-village"
+                    name="calc-village"
                     type="text"
                     placeholder="Örn: Önerler, Hamitabat, Kumbağ, Kozyörük vb."
                     value={village}
@@ -292,28 +301,30 @@ ${
                 </div>
               </div>
               <p className="text-xs text-slate-500 mt-2 flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-emerald-600 inline" />
+                <MapPin className="w-3.5 h-3.5 text-emerald-600 inline" aria-hidden="true" />
                 Tüm Trakya genelindeki köy ve mahalle mezarlıklarına kendi araç ve profesyonel mobil ekipmanlarımızla gidiyoruz.
               </p>
-            </div>
+            </fieldset>
 
             {/* Step 2: Photo Status */}
-            <div className="pt-2 border-t border-slate-100">
-              <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold">
+            <fieldset className="pt-2 border-t border-slate-100">
+              <legend className="text-sm font-bold text-slate-900 flex items-center justify-between w-full mb-3">
+                <span className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold" aria-hidden="true">
                     2
                   </span>
                   <span>Mezarın Fotoğrafı Elinizde Var mı?</span>
-                </label>
+                </span>
                 <span className="text-xs text-emerald-800 font-semibold hidden sm:inline">
                   Hızlı Fiyat veya Yerinde Çekim
                 </span>
-              </div>
+              </legend>
 
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 gap-3" role="radiogroup" aria-label="Mezar Fotoğraf Durumu">
                 <button
                   type="button"
+                  role="radio"
+                  aria-checked={photoStatus === "has_photo"}
                   onClick={() => setPhotoStatus("has_photo")}
                   className={`flex items-start gap-3 p-4 rounded-2xl border text-left transition cursor-pointer ${
                     photoStatus === "has_photo"
@@ -321,14 +332,14 @@ ${
                       : "bg-slate-50 border-slate-200 hover:bg-slate-100"
                   }`}
                 >
-                  <div className="mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 border-emerald-700">
+                  <div className="mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 border-emerald-700" aria-hidden="true">
                     {photoStatus === "has_photo" && (
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-700" />
                     )}
                   </div>
                   <div>
                     <p className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                      <Camera className="w-4 h-4 text-emerald-700" />
+                      <Camera className="w-4 h-4 text-emerald-700" aria-hidden="true" />
                       <span>Fotoğrafım Var (WhatsApp&apos;tan Atacağım)</span>
                     </p>
                     <p className="text-xs text-slate-600 mt-1">
@@ -339,6 +350,8 @@ ${
 
                 <button
                   type="button"
+                  role="radio"
+                  aria-checked={photoStatus === "needs_visit"}
                   onClick={() => setPhotoStatus("needs_visit")}
                   className={`flex items-start gap-3 p-4 rounded-2xl border text-left transition cursor-pointer ${
                     photoStatus === "needs_visit"
@@ -346,14 +359,14 @@ ${
                       : "bg-slate-50 border-slate-200 hover:bg-slate-100"
                   }`}
                 >
-                  <div className="mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 border-teal-700">
+                  <div className="mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 border-teal-700" aria-hidden="true">
                     {photoStatus === "needs_visit" && (
                       <span className="w-2.5 h-2.5 rounded-full bg-teal-700" />
                     )}
                   </div>
                   <div>
                     <p className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                      <Car className="w-4 h-4 text-teal-700" />
+                      <Car className="w-4 h-4 text-teal-700" aria-hidden="true" />
                       <span>Fotoğrafım Yok (Siz Gidip Çekin)</span>
                     </p>
                     <p className="text-xs text-slate-600 mt-1">
@@ -362,23 +375,24 @@ ${
                   </div>
                 </button>
               </div>
-            </div>
+            </fieldset>
 
             {/* Step 3: Desired Services */}
-            <div className="pt-2 border-t border-slate-100">
-              <label className="block text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold">
+            <fieldset className="pt-2 border-t border-slate-100">
+              <legend className="block text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold" aria-hidden="true">
                   3
                 </span>
                 <span>Bu Ziyarette Yapılmasını İstediğiniz Hizmetleri Seçin</span>
-              </label>
-              <div className="grid sm:grid-cols-2 gap-3">
+              </legend>
+              <div className="grid sm:grid-cols-2 gap-3" role="group" aria-label="Hizmet Seçimi">
                 {availableServices.map((srv) => {
                   const isChecked = selectedServices.includes(srv.id);
                   return (
                     <button
                       type="button"
                       key={srv.id}
+                      aria-pressed={isChecked}
                       onClick={() => toggleService(srv.id)}
                       className={`flex items-start justify-between p-3.5 rounded-xl text-left border transition-all duration-200 cursor-pointer ${
                         isChecked
@@ -389,9 +403,9 @@ ${
                       <div className="flex items-start gap-3">
                         <div className="mt-0.5 text-emerald-700">
                           {isChecked ? (
-                            <CheckSquare className="w-5 h-5 fill-emerald-600 text-white" />
+                            <CheckSquare className="w-5 h-5 fill-emerald-600 text-white" aria-hidden="true" />
                           ) : (
-                            <Square className="w-5 h-5 text-slate-400" />
+                            <Square className="w-5 h-5 text-slate-400" aria-hidden="true" />
                           )}
                         </div>
                         <span className="text-xs sm:text-sm">{srv.label}</span>
@@ -403,40 +417,61 @@ ${
                   );
                 })}
               </div>
-            </div>
+            </fieldset>
 
             {/* Step 4: Contact details */}
-            <div className="pt-2 border-t border-slate-100">
-              <label className="block text-sm font-bold text-slate-900 mb-2 flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold">
+            <fieldset className="pt-2 border-t border-slate-100">
+              <legend className="block text-sm font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-emerald-800 text-white flex items-center justify-center text-xs font-bold" aria-hidden="true">
                   4
                 </span>
                 <span>İletişim ve Varsa Özel Notunuz</span>
-              </label>
+              </legend>
               <div className="grid sm:grid-cols-2 gap-4 mb-3">
-                <input
-                  type="text"
-                  placeholder="Adınız ve Soyadınız"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-                />
-                <input
-                  type="tel"
-                  placeholder="Telefon Numaranız (İsteğe bağlı)"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                <div>
+                  <label htmlFor="trakya-calc-name" className="block text-xs font-semibold text-slate-600 mb-1">
+                    Adınız ve Soyadınız
+                  </label>
+                  <input
+                    id="trakya-calc-name"
+                    name="calc-name"
+                    type="text"
+                    placeholder="Adınız ve Soyadınız"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="trakya-calc-phone" className="block text-xs font-semibold text-slate-600 mb-1">
+                    Telefon Numaranız
+                  </label>
+                  <input
+                    id="trakya-calc-phone"
+                    name="calc-phone"
+                    type="tel"
+                    placeholder="Telefon Numaranız (İsteğe bağlı)"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="trakya-calc-notes" className="block text-xs font-semibold text-slate-600 mb-1">
+                  Özel Notunuz veya Mezar Durumu
+                </label>
+                <textarea
+                  id="trakya-calc-notes"
+                  name="calc-notes"
+                  rows={2}
+                  placeholder="Varsa kabirle ilgili ek bilgi (Örn: Mezar 5 yıldır bakımsız, taşın yazısı çok silik vb.)"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
-              <textarea
-                rows={2}
-                placeholder="Varsa kabirle ilgili ek bilgi (Örn: Mezar 5 yıldır bakımsız, taşın yazısı çok silik vb.)"
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-              />
-            </div>
+            </fieldset>
 
             {/* Step 5: Estimated Price Bar */}
             <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-4">

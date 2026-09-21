@@ -13,7 +13,7 @@ export default function BlogSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-              <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
+              <BookOpen className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
               <span>Mezar Bakım Rehberleri & Bilgi Köşesi</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -30,7 +30,7 @@ export default function BlogSection() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 hover:border-emerald-600 hover:text-emerald-700 font-bold text-sm shadow-sm transition shrink-0 group"
           >
             <span>Tüm Rehberleri Gör ({blogPosts.length})</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
           </Link>
         </div>
 
@@ -60,12 +60,12 @@ export default function BlogSection() {
                 <div className="space-y-2.5">
                   <div className="flex items-center gap-3 text-xs text-slate-500">
                     <span className="inline-flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
+                      <Calendar className="w-3 h-3" aria-hidden="true" />
                       {post.date}
                     </span>
                     <span>•</span>
                     <span className="inline-flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
+                      <Clock className="w-3 h-3" aria-hidden="true" />
                       {post.readTime}
                     </span>
                   </div>
@@ -83,10 +83,11 @@ export default function BlogSection() {
                   <span className="text-slate-400 font-medium">{post.author}</span>
                   <Link
                     href={`/blog/${post.slug}`}
+                    aria-label={`"${post.title}" yazısını oku`}
                     className="inline-flex items-center gap-1 text-emerald-700 font-bold hover:text-emerald-900 group-hover:gap-1.5 transition-all"
                   >
                     <span>Yazıyı Oku</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                   </Link>
                 </div>
               </div>

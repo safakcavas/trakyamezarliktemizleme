@@ -79,32 +79,38 @@ export default function BlogIndexPage() {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald-700 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none"
+      >
+        İçeriğe Atla
+      </a>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
 
-      <main className="min-h-screen bg-slate-50 flex flex-col">
+      <main id="main-content" className="min-h-screen bg-slate-50 flex flex-col">
         {/* Header / Hero */}
         <section className="bg-gradient-to-b from-emerald-950 via-slate-900 to-slate-900 text-white pt-10 pb-16 px-4 sm:px-6 lg:px-8 border-b border-emerald-900/60">
           <div className="max-w-6xl mx-auto">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-xs text-slate-400 mb-6">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-400 mb-6">
               <Link
                 href="/"
                 className="hover:text-emerald-300 transition flex items-center gap-1"
               >
-                <Home className="w-3.5 h-3.5" />
+                <Home className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Ana Sayfa</span>
               </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-600" aria-hidden="true" />
               <span className="text-emerald-300 font-semibold">Blog & Rehberler</span>
             </nav>
 
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/80 border border-emerald-700/50 text-emerald-300 text-xs font-semibold">
-                <BookOpen className="w-3.5 h-3.5" />
+                <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Uzman Mezar Bakım Rehberi</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -131,11 +137,11 @@ export default function BlogIndexPage() {
                         {featuredPost.category}
                       </span>
                       <span className="inline-flex items-center gap-1 text-xs text-slate-500">
-                        <Clock className="w-3.5 h-3.5" />
+                        <Clock className="w-3.5 h-3.5" aria-hidden="true" />
                         {featuredPost.readTime}
                       </span>
                       <span className="inline-flex items-center gap-1 text-xs text-slate-500">
-                        <Calendar className="w-3.5 h-3.5" />
+                        <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
                         {featuredPost.date}
                       </span>
                     </div>
@@ -153,10 +159,11 @@ export default function BlogIndexPage() {
                     <div className="pt-2">
                       <Link
                         href={`/blog/${featuredPost.slug}`}
+                        aria-label={`"${featuredPost.title}" rehberini okuyun`}
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm shadow-sm transition group-hover:gap-3"
                       >
                         <span>Rehberi Okuyun</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-4 h-4" aria-hidden="true" />
                       </Link>
                     </div>
                   </div>
@@ -213,12 +220,12 @@ export default function BlogIndexPage() {
                     <div className="space-y-2.5">
                       <div className="flex items-center gap-3 text-xs text-slate-500">
                         <span className="inline-flex items-center gap-1">
-                          <Calendar className="w-3 h-3" />
+                          <Calendar className="w-3 h-3" aria-hidden="true" />
                           {post.date}
                         </span>
                         <span>•</span>
                         <span className="inline-flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
+                          <Clock className="w-3 h-3" aria-hidden="true" />
                           {post.readTime}
                         </span>
                       </div>
@@ -236,10 +243,11 @@ export default function BlogIndexPage() {
                       <span className="text-slate-400 font-medium">{post.author}</span>
                       <Link
                         href={`/blog/${post.slug}`}
+                        aria-label={`"${post.title}" devamını oku`}
                         className="inline-flex items-center gap-1 text-emerald-700 font-bold hover:text-emerald-900 group-hover:gap-1.5 transition-all"
                       >
                         <span>Devamını Oku</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                       </Link>
                     </div>
                   </div>
@@ -252,7 +260,7 @@ export default function BlogIndexPage() {
           <div className="rounded-3xl bg-gradient-to-br from-emerald-900 via-slate-900 to-teal-950 text-white p-8 sm:p-10 shadow-xl border border-emerald-800/80">
             <div className="max-w-3xl mx-auto text-center space-y-5">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700/60 text-emerald-200 text-xs font-bold">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
+                <Sparkles className="w-3.5 h-3.5 text-emerald-300" aria-hidden="true" />
                 <span>Tekirdağ & Kırklareli Tüm Köylere Hizmet</span>
               </div>
 
@@ -270,9 +278,10 @@ export default function BlogIndexPage() {
                   href={contactConfig.getWhatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="WhatsApp üzerinden bilgi ve fiyat teklifi alın"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                  <MessageCircle className="w-4 h-4 fill-white text-emerald-600" aria-hidden="true" />
                   <span>WhatsApp’tan Bilgi & Fiyat Al</span>
                 </a>
                 <Link
@@ -280,17 +289,17 @@ export default function BlogIndexPage() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 font-semibold text-sm transition"
                 >
                   <span>Online Fiyat Hesapla</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </div>
 
               <div className="pt-3 flex flex-wrap items-center justify-center gap-4 text-xs text-emerald-200/80">
                 <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
                   Yerinde su & elektrik ihtiyacı olmadan
                 </span>
                 <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
                   HD video ile teslimat garantisi
                 </span>
               </div>

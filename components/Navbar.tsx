@@ -78,7 +78,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Menu */}
-            <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-slate-700">
+            <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold text-slate-700" aria-label="Ana Menü">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -97,8 +97,9 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:text-emerald-700 hover:border-emerald-600 transition font-medium text-sm"
+                aria-label={`WhatsApp danışma hattı: ${contactConfig.phone}`}
               >
-                <MessageCircle className="w-4 h-4 text-emerald-700" />
+                <MessageCircle className="w-4 h-4 text-emerald-700" aria-hidden="true" />
                 <span>{contactConfig.phone}</span>
               </a>
               <a
@@ -106,8 +107,9 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm shadow-sm transition hover:shadow"
+                aria-label="WhatsApp üzerinden hızlı teklif alın"
               >
-                <MessageCircle className="w-4 h-4 fill-white text-emerald-700" />
+                <MessageCircle className="w-4 h-4 fill-white text-emerald-700" aria-hidden="true" />
                 <span>WhatsApp Teklif</span>
               </a>
             </div>
@@ -119,17 +121,23 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="md:hidden p-2 rounded-lg bg-emerald-600 text-white"
-                aria-label="WhatsApp"
+                aria-label="WhatsApp ile hemen iletişime geçin"
               >
-                <MessageCircle className="w-5 h-5 fill-white text-emerald-600" />
+                <MessageCircle className="w-5 h-5 fill-white text-emerald-600" aria-hidden="true" />
               </a>
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition"
-                aria-label="Menüyü Aç"
+                aria-label={isMobileMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-nav-menu"
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" aria-hidden="true" />
+                ) : (
+                  <Menu className="w-6 h-6" aria-hidden="true" />
+                )}
               </button>
             </div>
           </div>
@@ -137,7 +145,7 @@ export default function Navbar() {
 
         {/* Mobile Dropdown */}
         {isMobileMenuOpen && (
-          <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+          <div id="mobile-nav-menu" className="xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
             {/* Edirne Redirect Notice inside Mobile Menu */}
             <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center justify-between">
               <span>Edirne mezarlık bakımı için sitemiz:</span>
@@ -148,7 +156,7 @@ export default function Navbar() {
                 className="font-bold underline text-amber-900 flex items-center gap-1"
               >
                 edirnemezarliktemizleme.site
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-3 h-3" aria-hidden="true" />
               </a>
             </div>
 
@@ -159,11 +167,11 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-bold shadow-sm transition"
               >
-                <MessageCircle className="w-4 h-4 fill-white text-emerald-700" />
+                <MessageCircle className="w-4 h-4 fill-white text-emerald-700" aria-hidden="true" />
                 <span>WhatsApp İletişim: {contactConfig.phone}</span>
               </a>
             </div>
-            <nav className="flex flex-col space-y-2">
+            <nav className="flex flex-col space-y-2" aria-label="Mobil Menü">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

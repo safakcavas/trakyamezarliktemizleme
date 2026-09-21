@@ -139,6 +139,12 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-emerald-700 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none"
+      >
+        İçeriğe Atla
+      </a>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -149,24 +155,24 @@ export default async function BlogPostPage({ params }: Props) {
       />
       <Navbar />
 
-      <main className="min-h-screen bg-white">
+      <main id="main-content" className="min-h-screen bg-white">
         {/* Article Header */}
         <header className="bg-gradient-to-b from-emerald-950 via-slate-900 to-slate-900 text-white pt-10 pb-16 px-4 sm:px-6 lg:px-8 border-b border-emerald-900/60">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumbs */}
-            <nav className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-6">
+            <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-6">
               <Link
                 href="/"
                 className="hover:text-emerald-300 transition flex items-center gap-1"
               >
-                <Home className="w-3.5 h-3.5" />
+                <Home className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Ana Sayfa</span>
               </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-600" aria-hidden="true" />
               <Link href="/blog" className="hover:text-emerald-300 transition">
                 Blog & Rehberler
               </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+              <ChevronRight className="w-3.5 h-3.5 text-slate-600" aria-hidden="true" />
               <span className="text-emerald-300 font-semibold truncate max-w-xs sm:max-w-md">
                 {post.category}
               </span>
@@ -178,11 +184,11 @@ export default async function BlogPostPage({ params }: Props) {
                   {post.category}
                 </span>
                 <span className="inline-flex items-center gap-1 text-xs text-slate-300">
-                  <Calendar className="w-3.5 h-3.5" />
+                  <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
                   {post.date}
                 </span>
                 <span className="inline-flex items-center gap-1 text-xs text-slate-300">
-                  <Clock className="w-3.5 h-3.5" />
+                  <Clock className="w-3.5 h-3.5" aria-hidden="true" />
                   {post.readTime}
                 </span>
                 <span className="text-xs text-slate-400 font-medium">
@@ -244,7 +250,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {/* Optional Tip Box */}
                 {section.tip && (
                   <div className="my-5 p-4 sm:p-5 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-900 flex items-start gap-3 text-sm leading-relaxed">
-                    <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" aria-hidden="true" />
                     <div>
                       <strong className="font-bold block text-amber-950 mb-1">
                         Önemli Dikkat Noktası:
@@ -266,7 +272,7 @@ export default async function BlogPostPage({ params }: Props) {
                           key={cIdx}
                           className="flex items-start gap-2.5 text-sm sm:text-base text-slate-700"
                         >
-                          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" aria-hidden="true" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -279,7 +285,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Conclusion */}
             <div className="p-6 sm:p-8 rounded-2xl bg-slate-900 text-white space-y-4 my-12">
               <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-emerald-400" />
+                <Sparkles className="w-5 h-5 text-emerald-400" aria-hidden="true" />
                 <span>Sonuç ve Tavsiye</span>
               </h2>
               <p className="text-slate-300 text-base leading-relaxed">
@@ -306,16 +312,18 @@ export default async function BlogPostPage({ params }: Props) {
                 href={contactConfig.getWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp üzerinden mesaj yazın"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-bold text-sm shadow-md transition"
               >
-                <MessageCircle className="w-4 h-4 fill-white text-emerald-500" />
+                <MessageCircle className="w-4 h-4 fill-white text-emerald-500" aria-hidden="true" />
                 <span>WhatsApp’tan Yazın</span>
               </a>
               <a
                 href={contactConfig.getPhoneUrl()}
+                aria-label={`Telefonla Arayın: ${contactConfig.phone}`}
                 className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-600 transition"
               >
-                <Phone className="w-4 h-4 text-emerald-400" />
+                <Phone className="w-4 h-4 text-emerald-400" aria-hidden="true" />
                 <span>{contactConfig.phone}</span>
               </a>
             </div>
@@ -327,7 +335,7 @@ export default async function BlogPostPage({ params }: Props) {
               href="/blog"
               className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 hover:text-emerald-900 transition"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4" aria-hidden="true" />
               <span>Tüm Rehber ve Yazılara Dön</span>
             </Link>
 
@@ -354,6 +362,7 @@ export default async function BlogPostPage({ params }: Props) {
                   <Link
                     key={rPost.slug}
                     href={`/blog/${rPost.slug}`}
+                    aria-label={`"${rPost.title}" rehberini incele`}
                     className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500 hover:bg-emerald-50/20 transition group flex flex-col justify-between"
                   >
                     <div className="space-y-2">
@@ -369,7 +378,7 @@ export default async function BlogPostPage({ params }: Props) {
                     </div>
                     <div className="pt-4 flex items-center justify-between text-xs text-emerald-700 font-semibold group-hover:gap-1">
                       <span>Yazıyı İncele</span>
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-4 h-4" aria-hidden="true" />
                     </div>
                   </Link>
                 ))}

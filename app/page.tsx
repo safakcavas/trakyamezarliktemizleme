@@ -16,22 +16,30 @@ import FloatingCTA from "@/components/FloatingCTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-800 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none"
+      >
+        Ana içeriğe atla
+      </a>
       <Navbar />
-      <Hero />
-      <TrustBar />
-      <Services />
-      <BeforeAfter />
-      <QuoteCalculator />
-      <Regions />
-      <Process />
-      <Packages />
-      <Testimonials />
-      <BlogSection />
-      <FAQ />
-      <Contact />
+      <main id="main-content" className="flex-1 flex flex-col">
+        <Hero />
+        <TrustBar />
+        <Services />
+        <BeforeAfter />
+        <QuoteCalculator />
+        <Regions />
+        <Process />
+        <Packages />
+        <Testimonials />
+        <BlogSection />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
       <FloatingCTA />
-    </main>
+    </div>
   );
 }

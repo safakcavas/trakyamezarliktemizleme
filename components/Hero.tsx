@@ -130,11 +130,11 @@ export default function Hero() {
 
               <div className="flex items-center justify-between pb-3 border-b border-slate-700">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold" aria-hidden="true">
                     ✓
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-base">2 Kolay Başlangıç Yolu</h3>
+                    <h2 className="font-bold text-white text-base">2 Kolay Başlangıç Yolu</h2>
                     <p className="text-xs text-slate-400">Resim gönderin veya biz gidip çekelim</p>
                   </div>
                 </div>

@@ -18,7 +18,7 @@ export default function FAQ() {
         {/* Header */}
         <div className="text-center space-y-4 mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-            <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
+            <HelpCircle className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
             <span>Merak Edilenler</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -40,6 +40,9 @@ export default function FAQ() {
               >
                 <button
                   type="button"
+                  id={`faq-btn-${index}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-ans-${index}`}
                   onClick={() => toggle(index)}
                   className={`w-full flex items-center justify-between p-5 text-left font-bold text-sm sm:text-base transition-colors cursor-pointer ${
                     isOpen
@@ -48,7 +51,7 @@ export default function FAQ() {
                   }`}
                 >
                   <span className="pr-4">{item.question}</span>
-                  <div className="shrink-0 text-emerald-700">
+                  <div className="shrink-0 text-emerald-700" aria-hidden="true">
                     {isOpen ? (
                       <ChevronUp className="w-5 h-5" />
                     ) : (
@@ -58,7 +61,12 @@ export default function FAQ() {
                 </button>
 
                 {isOpen && (
-                  <div className="p-5 bg-white border-t border-slate-100 text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  <div
+                    id={`faq-ans-${index}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${index}`}
+                    className="p-5 bg-white border-t border-slate-100 text-slate-600 text-xs sm:text-sm leading-relaxed"
+                  >
                     {item.answer}
                   </div>
                 )}
@@ -79,9 +87,10 @@ export default function FAQ() {
             href={contactConfig.getWhatsappUrl("Merhaba, mezar bakımı hakkında sormak istediğim bir konu var.")}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="WhatsApp üzerinden soru sorun"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold shadow-sm transition"
           >
-            <MessageCircle className="w-4 h-4 fill-white" />
+            <MessageCircle className="w-4 h-4 fill-white" aria-hidden="true" />
             <span>WhatsApp’tan Hemen Danışın</span>
           </a>
         </div>

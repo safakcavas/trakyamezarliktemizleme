@@ -62,15 +62,22 @@ export default function Regions() {
         </div>
 
         {/* Village Search Bar */}
+        {/* Village Search Bar */}
         <div className="max-w-xl mx-auto mb-10">
           <div className="relative">
-            <Search className="w-5 h-5 text-slate-400 absolute left-4 top-3.5" />
+            <label htmlFor="trakya-village-search" className="sr-only">
+              Köy veya mahalle ara
+            </label>
+            <Search className="w-5 h-5 text-slate-400 absolute left-4 top-3.5" aria-hidden="true" />
             <input
+              id="trakya-village-search"
+              name="village-search"
               type="text"
               placeholder="Köy veya mahalle adınızı arayın (Örn: Önerler, Hamitabat, Kumbağ, Alpullu...)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-slate-200 focus:border-emerald-600 focus:outline-none text-sm text-slate-900 shadow-sm"
+              aria-label="Köy veya mahalle adınızı arayın"
             />
           </div>
 
@@ -104,7 +111,7 @@ export default function Regions() {
                         key={idx}
                         className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-white border border-emerald-300 text-xs font-semibold text-emerald-900 shadow-sm"
                       >
-                        <MapPin className="w-3 h-3 text-emerald-600" />
+                        <MapPin className="w-3.5 h-3.5 text-emerald-600" />
                         <strong>{res.village}</strong> ({res.district} - {res.province})
                       </span>
                     ))}
@@ -125,8 +132,10 @@ export default function Regions() {
         </div>
 
         {/* Top Province Selection Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8" role="group" aria-label="İl Seçimi">
           <button
+            type="button"
+            aria-pressed={activeProvince === "Tekirdağ"}
             onClick={() => handleProvinceTab("Tekirdağ")}
             className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
               activeProvince === "Tekirdağ"
@@ -134,11 +143,13 @@ export default function Regions() {
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200"
             }`}
           >
-            <Building2 className="w-4 h-4" />
+            <Building2 className="w-4 h-4" aria-hidden="true" />
             <span>Tekirdağ (9 İlçe)</span>
           </button>
 
           <button
+            type="button"
+            aria-pressed={activeProvince === "Kırklareli"}
             onClick={() => handleProvinceTab("Kırklareli")}
             className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
               activeProvince === "Kırklareli"
@@ -146,11 +157,13 @@ export default function Regions() {
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200"
             }`}
           >
-            <Building2 className="w-4 h-4" />
+            <Building2 className="w-4 h-4" aria-hidden="true" />
             <span>Kırklareli (8 İlçe)</span>
           </button>
 
           <button
+            type="button"
+            aria-pressed={activeProvince === "Edirne"}
             onClick={() => handleProvinceTab("Edirne")}
             className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition duration-200 flex items-center gap-2 cursor-pointer ${
               activeProvince === "Edirne"
@@ -158,7 +171,7 @@ export default function Regions() {
                 : "bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100"
             }`}
           >
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-4 h-4" aria-hidden="true" />
             <span>Edirne (Özel Sitemiz ↗)</span>
           </button>
         </div>
@@ -218,12 +231,14 @@ export default function Regions() {
           /* View for Tekirdağ and Kırklareli */
           <>
             {/* District Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-8" role="group" aria-label="İlçe Seçimi">
               {districtsInProvince.map((dist) => {
                 const isSelected = selectedDistrict.slug === dist.slug;
                 return (
                   <button
                     key={dist.slug}
+                    type="button"
+                    aria-pressed={isSelected}
                     onClick={() => setSelectedDistrict(dist)}
                     className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                       isSelected

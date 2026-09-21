@@ -75,10 +75,11 @@ ${
                 href={contactConfig.getWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`WhatsApp Danışma Hattı: ${contactConfig.phone}`}
                 className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-emerald-500 transition group"
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition">
-                  <MessageCircle className="w-6 h-6 fill-current" />
+                  <MessageCircle className="w-6 h-6 fill-current" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-400">WhatsApp Danışma Hattı</p>
@@ -93,10 +94,11 @@ ${
                 href={contactConfig.getWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp Canlı Destek: Konum ve Fotoğraf Gönderin"
                 className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700 hover:border-emerald-500 transition group"
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition">
-                  <MessageCircle className="w-6 h-6 fill-current" />
+                  <MessageCircle className="w-6 h-6 fill-current" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-400">WhatsApp Canlı Destek</p>
@@ -109,7 +111,7 @@ ${
               {/* Working hours */}
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
                 <div className="w-12 h-12 rounded-xl bg-teal-600/20 text-teal-400 flex items-center justify-center shrink-0">
-                  <Clock className="w-6 h-6" />
+                  <Clock className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-400">Çalışma Saatleri</p>
@@ -122,7 +124,7 @@ ${
               {/* Edirne Special Link */}
               <div className="p-4 rounded-2xl bg-amber-950/40 border border-amber-800/60 flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center shrink-0">
-                  <ExternalLink className="w-6 h-6" />
+                  <ExternalLink className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-xs text-amber-300 font-bold">Edirne İli Hizmet Sitemiz</p>
@@ -155,11 +157,13 @@ ${
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-300 mb-1">
                     Adınız ve Soyadınız
                   </label>
                   <input
                     type="text"
+                    id="contact-name"
+                    name="name"
                     required
                     placeholder="Adınız ve Soyadınız"
                     value={name}
@@ -170,11 +174,13 @@ ${
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    <label htmlFor="contact-phone" className="block text-xs font-semibold text-slate-300 mb-1">
                       Telefon Numaranız
                     </label>
                     <input
                       type="tel"
+                      id="contact-phone"
+                      name="phone"
                       required
                       placeholder="05XX XXX XX XX"
                       value={phone}
@@ -183,11 +189,13 @@ ${
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    <label htmlFor="contact-district" className="block text-xs font-semibold text-slate-300 mb-1">
                       İlçe / Köy
                     </label>
                     <input
                       type="text"
+                      id="contact-district"
+                      name="district"
                       placeholder="Örn: Çorlu Önerler / Lüleburgaz"
                       value={district}
                       onChange={(e) => setDistrict(e.target.value)}
@@ -197,13 +205,15 @@ ${
                 </div>
 
                 {/* Photo Option Choice */}
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-2">
+                <fieldset>
+                  <legend className="block text-xs font-semibold text-slate-300 mb-2">
                     Mezar Fotoğraf Durumu
-                  </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  </legend>
+                  <div role="radiogroup" aria-label="Mezar Fotoğraf Durumu" className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <button
                       type="button"
+                      role="radio"
+                      aria-checked={photoOption === "foto_var"}
                       onClick={() => setPhotoOption("foto_var")}
                       className={`flex items-center gap-2.5 p-3 rounded-xl border text-left text-xs font-medium transition cursor-pointer ${
                         photoOption === "foto_var"
@@ -211,12 +221,14 @@ ${
                           : "bg-slate-900 border-slate-700 text-slate-400 hover:text-white"
                       }`}
                     >
-                      <Camera className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <Camera className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
                       <span>Resim Var (WhatsApp&apos;tan Atacağım)</span>
                     </button>
 
                     <button
                       type="button"
+                      role="radio"
+                      aria-checked={photoOption === "foto_yok"}
                       onClick={() => setPhotoOption("foto_yok")}
                       className={`flex items-center gap-2.5 p-3 rounded-xl border text-left text-xs font-medium transition cursor-pointer ${
                         photoOption === "foto_yok"
@@ -224,17 +236,19 @@ ${
                           : "bg-slate-900 border-slate-700 text-slate-400 hover:text-white"
                       }`}
                     >
-                      <Car className="w-4 h-4 text-teal-400 shrink-0" />
+                      <Car className="w-4 h-4 text-teal-400 shrink-0" aria-hidden="true" />
                       <span>Resim Yok (Siz Gidip Çekin)</span>
                     </button>
                   </div>
-                </div>
+                </fieldset>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-300 mb-1">
                     Talebiniz veya Mezar Durumu
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     rows={3}
                     placeholder="Yabani ot temizliği, çiçeklendirme, taş boyama vb."
                     value={message}
@@ -247,13 +261,13 @@ ${
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-950/50 transition cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" />
                   <span>WhatsApp ile Talebi İlet</span>
                 </button>
 
                 {submitted && (
                   <div className="p-3 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 text-xs flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 shrink-0" />
+                    <CheckCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
                     <span>WhatsApp mesajınız oluşturuldu, yönlendiriliyorsunuz.</span>
                   </div>
                 )}

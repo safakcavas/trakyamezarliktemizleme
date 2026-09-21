@@ -105,10 +105,11 @@ export default function Services() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-700 text-emerald-800 hover:text-white transition duration-200 font-bold text-xs"
+                    aria-label={`${service.title} hizmeti için WhatsApp'tan bilgi ve fiyat teklifi alın`}
                   >
-                    <MessageCircle className="w-3.5 h-3.5" />
+                    <MessageCircle className="w-3.5 h-3.5" aria-hidden="true" />
                     <span>WhatsApp</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </div>
@@ -121,11 +122,11 @@ export default function Services() {
           <div className="grid lg:grid-cols-12 items-center">
             <div className="lg:col-span-7 p-7 sm:p-10 space-y-4 text-center lg:text-left">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-800/80 text-emerald-200 border border-emerald-700">
-                <Sparkles className="w-3.5 h-3.5" /> Sevgi ve Hürmetle Kabir Çiçeklendirme
+                <Sparkles className="w-3.5 h-3.5 text-emerald-200" aria-hidden="true" /> Sevgi ve Hürmetle Kabir Çiçeklendirme
               </span>
-              <h4 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
                 Özel Bir Bakım Talebiniz veya Çiçek Tercihiniz mi Var?
-              </h4>
+              </h3>
               <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
                 Kabir toprağını havalandırıp zenginleştiriyor, sardunya, kadife çiçeği, lavanta ve mevsimlik canlı çiçekleri itina ile dikiyoruz. Mezarınızın fotoğrafını WhatsApp’tan iletin, anında durum tespiti yapalım.
               </p>
@@ -135,8 +136,9 @@ export default function Services() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg transition hover:scale-105"
+                  aria-label="WhatsApp üzerinden mezar fotoğrafı gönderip çiçeklendirme fiyatı alın"
                 >
-                  <MessageCircle className="w-5 h-5 fill-slate-950" />
+                  <MessageCircle className="w-5 h-5 fill-slate-950" aria-hidden="true" />
                   <span>Fotoğraf Gönder & Fiyat Al</span>
                 </a>
               </div>
